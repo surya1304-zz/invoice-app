@@ -1,0 +1,139 @@
+* {
+  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.body {
+  background-color: var(--color-12);
+}
+
+.Form-element {
+  &.light {
+    --fcolor-1: var(--color-7);
+    --fcolor-2: var(--color-1);
+    --fcolor-3: var(--color-8);
+    --fcolor-bg-1: var(--color-white);
+    --fcolor-bg-2: var(--color-white);
+    --fcolor-disabled-head: rgb(191, 195, 225);
+    --fcolor-disabled-outline: rgb(239, 241, 252);
+    --fcolor-disabled-text: rgb(133, 135, 139);
+    --fcolor-hover: #f3f3f3;
+    --fcolor-inactive: rgb(235, 235, 235);
+  }
+  &.dark {
+    --fcolor-1: var(--color-5);
+    --fcolor-2: var(--color-1);
+    --fcolor-3: var(--color-5);
+    --fcolor-bg-1: var(--color-3);
+    --fcolor-bg-2: var(--color-4);
+    --fcolor-disabled-head: rgb(121, 124, 143);
+    --fcolor-disabled-outline: rgb(28, 31, 53);
+    --fcolor-disabled-text: rgb(137, 138, 146);
+    --fcolor-hover: hsl(233, 80%, 10%);
+    --fcolor-inactive: rgb(52, 56, 84);
+  }
+
+  &.disabled .label {
+    color: var(--fcolor-disabled-head);
+  }
+
+  &.disabled .date-picker {
+    outline: 1px solid var(--fcolor-disabled-outline);
+  }
+
+  &.disabled .date-picker .issue-date .selected-date {
+    color: var(--fcolor-disabled-text);
+  }
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--fcolor-1);
+}
+
+.date-picker {
+  margin-top: 0.6rem;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 60px;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--fcolor-bg-2);
+  outline: 1px solid var(--fcolor-2);
+  user-select: none;
+
+  .selected-date {
+    font-size: 0.85rem;
+    color: var(--fcolor-3);
+  }
+  .dates {
+    margin-top: 1rem;
+    transform: scale(0);
+    position: absolute;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+    top: 100%;
+    left: 0;
+    right: 0;
+    transition: transform 250ms ease-in-out;
+    transform-origin: top;
+    background-color: var(--fcolor-bg-1);
+
+    .month {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--fcolor-3);
+
+      .arrows {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        &:hover {
+          background-color: var(--fcolor-hover);
+        }
+      }
+    }
+    .days {
+      display: grid;
+      font-size: 0.8rem;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      height: 200px;
+      .day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--fcolor-3);
+      }
+      .day.selected {
+        color: var(--fcolor-2);
+      }
+
+      .day.inactive {
+        color: var(--fcolor-inactive);
+      }
+    }
+  }
+  .dates.active {
+    transform: scale(1);
+  }
+}
+.issue-date {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}

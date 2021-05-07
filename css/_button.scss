@@ -1,0 +1,127 @@
+body {
+  margin: 10px;
+}
+
+.button1 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-1);
+  color: white;
+  border-radius: 2rem;
+  position: relative;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &::before {
+    content: url("../starter-code/assets/icon-plus.svg");
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: white;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    background-color: var(--color-2);
+  }
+}
+
+.button2 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-1);
+  color: white;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-2);
+  }
+}
+
+.button3 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  &.light {
+    background-color: var(--color-11);
+    color: var(--color-7);
+    &:hover {
+      background-color: var(--color-5);
+    }
+  }
+  &.dark {
+    background-color: var(--color-4);
+    color: var(--color-5);
+    &:hover {
+      background-color: var(--color--white);
+    }
+  }
+}
+
+.button4 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  &.light {
+    background-color: var(--color-13);
+    color: var(--color-6);
+    &:hover {
+      background-color: var(--color-8);
+    }
+  }
+  &.dark {
+    background-color: var(--color-13);
+    color: var(--color-5);
+    &:hover {
+      background-color: var(--color-3);
+    }
+  }
+
+  &.delete {
+    background-color: var(--color-9);
+    color: var(--color--white);
+    &:hover {
+      background-color: var(--color-10);
+    }
+  }
+}
+
+.button5 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-11);
+  color: var(--color-7);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  & > p {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    background-color: var(--color-5);
+  }
+}

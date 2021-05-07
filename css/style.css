@@ -1,0 +1,389 @@
+:root {
+  /* Colors */
+  --color-1: hsl(252, 94%, 67%);
+  --color-2: hsl(252, 100%, 73%);
+  --color-3: hsl(233, 31%, 17%);
+  --color-4: hsl(233, 30%, 21%);
+  --color-5: hsl(231, 73%, 93%);
+  --color-6: hsl(231, 20%, 61%);
+  --color-7: hsl(231, 37%, 63%);
+  --color-8: hsl(228, 29%, 7%);
+  --color-13: hsl(231, 20%, 27%);
+  --color-9: hsl(0, 80%, 63%);
+  --color-10: hsl(0, 100%, 80%);
+  --color-11: hsl(240, 27%, 98%);
+  --color-12: hsl(233, 30%, 11%);
+  --color--white: hsl(0, 100%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+.small h3 {
+  font-size: 1.2rem;
+}
+
+.small p {
+  font-size: 1.1rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+body {
+  margin: 10px;
+}
+
+.button1 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-1);
+  color: white;
+  border-radius: 2rem;
+  position: relative;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button1::before {
+  content: url("../starter-code/assets/icon-plus.svg");
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background: white;
+  border-radius: 50%;
+}
+
+.button1:hover {
+  background-color: var(--color-2);
+}
+
+.button2 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-1);
+  color: white;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button2:hover {
+  background-color: var(--color-2);
+}
+
+.button3 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button3.light {
+  background-color: var(--color-11);
+  color: var(--color-7);
+}
+
+.button3.light:hover {
+  background-color: var(--color-5);
+}
+
+.button3.dark {
+  background-color: var(--color-4);
+  color: var(--color-5);
+}
+
+.button3.dark:hover {
+  background-color: var(--color--white);
+}
+
+.button4 {
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button4.light {
+  background-color: var(--color-13);
+  color: var(--color-6);
+}
+
+.button4.light:hover {
+  background-color: var(--color-8);
+}
+
+.button4.dark {
+  background-color: var(--color-13);
+  color: var(--color-5);
+}
+
+.button4.dark:hover {
+  background-color: var(--color-3);
+}
+
+.button4.delete {
+  background-color: var(--color-9);
+  color: var(--color--white);
+}
+
+.button4.delete:hover {
+  background-color: var(--color-10);
+}
+
+.button5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: "Spartan", sans-serif;
+  border: 0;
+  background-color: var(--color-11);
+  color: var(--color-7);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button5 > p {
+  font-size: 0.9rem;
+}
+
+.button5:hover {
+  background-color: var(--color-5);
+}
+
+* {
+  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.body {
+  background-color: var(--color-12);
+}
+
+.Form-element.light {
+  --fcolor-1: var(--color-7);
+  --fcolor-2: var(--color-1);
+  --fcolor-3: var(--color-8);
+  --fcolor-bg-1: var(--color-white);
+  --fcolor-bg-2: var(--color-white);
+  --fcolor-disabled-head: rgb(191, 195, 225);
+  --fcolor-disabled-outline: rgb(239, 241, 252);
+  --fcolor-disabled-text: rgb(133, 135, 139);
+  --fcolor-hover: #f3f3f3;
+  --fcolor-inactive: rgb(235, 235, 235);
+}
+
+.Form-element.dark {
+  --fcolor-1: var(--color-5);
+  --fcolor-2: var(--color-1);
+  --fcolor-3: var(--color-5);
+  --fcolor-bg-1: var(--color-3);
+  --fcolor-bg-2: var(--color-4);
+  --fcolor-disabled-head: rgb(121, 124, 143);
+  --fcolor-disabled-outline: rgb(28, 31, 53);
+  --fcolor-disabled-text: rgb(137, 138, 146);
+  --fcolor-hover: hsl(233, 80%, 10%);
+  --fcolor-inactive: rgb(52, 56, 84);
+}
+
+.Form-element.disabled .label {
+  color: var(--fcolor-disabled-head);
+}
+
+.Form-element.disabled .date-picker {
+  outline: 1px solid var(--fcolor-disabled-outline);
+}
+
+.Form-element.disabled .date-picker .issue-date .selected-date {
+  color: var(--fcolor-disabled-text);
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--fcolor-1);
+}
+
+.date-picker {
+  margin-top: 0.6rem;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 60px;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--fcolor-bg-2);
+  outline: 1px solid var(--fcolor-2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.date-picker .selected-date {
+  font-size: 0.85rem;
+  color: var(--fcolor-3);
+}
+
+.date-picker .dates {
+  margin-top: 1rem;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  position: absolute;
+  border-radius: 0.625rem;
+  -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+  top: 100%;
+  left: 0;
+  right: 0;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  background-color: var(--fcolor-bg-1);
+}
+
+.date-picker .dates .month {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--fcolor-3);
+}
+
+.date-picker .dates .month .arrows {
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.date-picker .dates .month .arrows:hover {
+  background-color: var(--fcolor-hover);
+}
+
+.date-picker .dates .days {
+  display: -ms-grid;
+  display: grid;
+  font-size: 0.8rem;
+  -ms-grid-columns: (1fr) [7];
+  grid-template-columns: repeat(7, 1fr);
+  -ms-grid-rows: (1fr) [5];
+  grid-template-rows: repeat(5, 1fr);
+  height: 200px;
+}
+
+.date-picker .dates .days .day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--fcolor-3);
+}
+
+.date-picker .dates .days .day.selected {
+  color: var(--fcolor-2);
+}
+
+.date-picker .dates .days .day.inactive {
+  color: var(--fcolor-inactive);
+}
+
+.date-picker .dates.active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.issue-date {
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+}
+/*# sourceMappingURL=style.css.map */
