@@ -13,27 +13,68 @@
     <title>form-elements</title>
   </head>
   <body>
-    <div class="dark disabled Form-element">
-      <p class="label">Issue Date</p>
-      <div class="date-picker">
-        <div class="issue-date">
-          <div class="selected-date"></div>
-          <img src="./assets/icon-calendar.svg" alt="" />
-        </div>
-        <div class="dates">
-          <div class="month">
-            <div class="arrows prev-mth">
-              <img src="../starter-code/assets/icon-arrow-left.svg" alt="" />
-            </div>
-            <div class="mth"></div>
-            <div class="arrows next-mth">
-              <img src="../starter-code/assets/icon-arrow-right.svg" alt="" />
-            </div>
+    <div class="elements">
+      <div class="dark Form-element">
+        <p class="label">Issue Date</p>
+        <div class="date-picker">
+          <div class="issue-date">
+            <div class="selected-date"></div>
+            <img src="./assets/icon-calendar.svg" alt="" />
           </div>
-          <div class="days"></div>
+          <div class="dates">
+            <div class="month">
+              <div class="arrows prev-mth">
+                <img src="../starter-code/assets/icon-arrow-left.svg" alt="" />
+              </div>
+              <div class="mth"></div>
+              <div class="arrows next-mth">
+                <img src="../starter-code/assets/icon-arrow-right.svg" alt="" />
+              </div>
+            </div>
+            <div class="days"></div>
+          </div>
+        </div>
+      </div>
+      <div class="light text_field">
+        <p class="label_field">Street Address</p>
+        <input type="text" class="field" />
+      </div>
+      <div class="dropdown">
+        <label for="drop_down" class="Label">Payment Terms</label>
+        <div class="selected-item">Net 30 Days</div>
+        <div id="drop_down">
+          <ul>
+            <li>Net 1 Day</li>
+            <li>Net 7 Days</li>
+            <li>Net 14 Days</li>
+            <li class="selected">Net 30 Days</li>
+          </ul>
         </div>
       </div>
     </div>
     <script src="../JS/date-picker.js"></script>
+    <script>
+      const p = document.getElementsByClassName("selected-item");
+      const k = document.querySelectorAll("#drop_down ul li");
+      const dropdown = document.getElementById("drop_down");
+      // let pk = "";
+
+      p[0].addEventListener("click", function (e) {
+        dropdown.classList.toggle("show");
+      });
+
+      for (let i = 0; i < k.length; i++) {
+        k[i].addEventListener("click", function (e) {
+          p[0].innerHTML = k[i].innerHTML;
+          k[i].classList.add("selected");
+          for (let d = 0; d < k.length; d++) {
+            if (k[d].classList.contains("selected") && d != i) {
+              k[d].classList.remove("selected");
+            }
+          }
+          dropdown.classList.remove("show");
+        });
+      }
+    </script>
   </body>
 </html>

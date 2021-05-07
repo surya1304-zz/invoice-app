@@ -137,3 +137,118 @@
   align-items: center;
   height: 100%;
 }
+
+.text_field {
+  &.light {
+    --fcolor-1: var(--color-7);
+    --fcolor-2: var(--color-1);
+    --fcolor-3: var(--color-8);
+    --fcolor-4: var(--color-5);
+    --fcolor-5: var(--color-white);
+    --fcolor-text-color: var(--color-8);
+    --fcolor-bg-1: var(--color-white);
+    --fcolor-bg-2: var(--color-white);
+    --fcolor-disabled-head: rgb(191, 195, 225);
+    --fcolor-disabled-outline: rgb(239, 241, 252);
+    --fcolor-disabled-text: rgb(133, 135, 139);
+    --fcolor-hover: #f3f3f3;
+    --fcolor-inactive: rgb(235, 235, 235);
+  }
+  &.dark {
+    --fcolor-1: var(--color-5);
+    --fcolor-2: var(--color-1);
+    --fcolor-3: var(--color-5);
+    --fcolor-4: var(--color-4);
+    --fcolor-5: var(--color-3);
+    --fcolor-text-color: #ffffff;
+    --fcolor-bg-1: var(--color-3);
+    --fcolor-bg-2: var(--color-4);
+    --fcolor-disabled-head: rgb(121, 124, 143);
+    --fcolor-disabled-outline: rgb(28, 31, 53);
+    --fcolor-disabled-text: rgb(137, 138, 146);
+    --fcolor-hover: hsl(233, 80%, 10%);
+    --fcolor-inactive: rgb(52, 56, 84);
+  }
+}
+
+.label_field {
+  font-size: 0.75rem;
+  color: var(--fcolor-1);
+  margin-bottom: 0.875rem;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  padding: 0.9375rem 1.25rem;
+  font-size: 0.75rem;
+  outline: 1px solid var(--fcolor-4);
+  margin: 0;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--fcolor-bg-2);
+  color: var(--fcolor-text-color);
+}
+
+.field:active,
+.field:focus {
+  outline: 1px solid var(--fcolor-2);
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.Label {
+  font-size: 0.75rem;
+  color: var(--color-7);
+}
+
+.selected-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  padding: 1rem 6rem 1rem 1rem;
+  width: fit-content;
+  border: 1px solid var(--color-1);
+  border-radius: 5px;
+  position: relative;
+
+  &::after {
+    content: url("../starter-code/assets/icon-arrow-down.svg");
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+#drop_down {
+  width: fit-content;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(0);
+  transform-origin: top;
+  transition: transform 250ms ease-in-out;
+
+  &.show {
+    transform: scale(1);
+  }
+}
+
+#drop_down > ul > li {
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-5);
+  padding: 1rem 6rem 1rem 1rem;
+  cursor: pointer;
+
+  &.selected {
+    color: var(--color-1);
+  }
+}

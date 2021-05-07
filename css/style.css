@@ -20,7 +20,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 * {
@@ -81,11 +81,11 @@ body {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   right: 0.5rem;
   width: 2rem;
   height: 2rem;
@@ -181,11 +181,11 @@ body {
   display: flex;
   width: 100%;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "Spartan", sans-serif;
   border: 0;
   background-color: var(--color-11);
@@ -270,9 +270,9 @@ body {
   background-color: var(--fcolor-bg-2);
   outline: 1px solid var(--fcolor-2);
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .date-picker .selected-date {
@@ -283,11 +283,11 @@ body {
 .date-picker .dates {
   margin-top: 1rem;
   -webkit-transform: scale(0);
-  transform: scale(0);
+          transform: scale(0);
   position: absolute;
   border-radius: 0.625rem;
   -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
   top: 100%;
   left: 0;
   right: 0;
@@ -296,7 +296,7 @@ body {
   transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
   -webkit-transform-origin: top;
-  transform-origin: top;
+          transform-origin: top;
   background-color: var(--fcolor-bg-1);
 }
 
@@ -309,11 +309,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--fcolor-3);
 }
 
@@ -324,11 +324,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 20px;
 }
 
@@ -340,10 +340,10 @@ body {
   display: -ms-grid;
   display: grid;
   font-size: 0.8rem;
-  -ms-grid-columns: (1fr) [7];
-  grid-template-columns: repeat(7, 1fr);
-  -ms-grid-rows: (1fr) [5];
-  grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
   height: 200px;
 }
 
@@ -352,11 +352,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--fcolor-3);
 }
 
@@ -370,7 +370,7 @@ body {
 
 .date-picker .dates.active {
   -webkit-transform: scale(1);
-  transform: scale(1);
+          transform: scale(1);
 }
 
 .issue-date {
@@ -379,11 +379,140 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
+}
+
+.text_field.light {
+  --fcolor-1: var(--color-7);
+  --fcolor-2: var(--color-1);
+  --fcolor-3: var(--color-8);
+  --fcolor-4: var(--color-5);
+  --fcolor-5: var(--color-white);
+  --fcolor-text-color: var(--color-8);
+  --fcolor-bg-1: var(--color-white);
+  --fcolor-bg-2: var(--color-white);
+  --fcolor-disabled-head: rgb(191, 195, 225);
+  --fcolor-disabled-outline: rgb(239, 241, 252);
+  --fcolor-disabled-text: rgb(133, 135, 139);
+  --fcolor-hover: #f3f3f3;
+  --fcolor-inactive: rgb(235, 235, 235);
+}
+
+.text_field.dark {
+  --fcolor-1: var(--color-5);
+  --fcolor-2: var(--color-1);
+  --fcolor-3: var(--color-5);
+  --fcolor-4: var(--color-4);
+  --fcolor-5: var(--color-3);
+  --fcolor-text-color: #ffffff;
+  --fcolor-bg-1: var(--color-3);
+  --fcolor-bg-2: var(--color-4);
+  --fcolor-disabled-head: rgb(121, 124, 143);
+  --fcolor-disabled-outline: rgb(28, 31, 53);
+  --fcolor-disabled-text: rgb(137, 138, 146);
+  --fcolor-hover: hsl(233, 80%, 10%);
+  --fcolor-inactive: rgb(52, 56, 84);
+}
+
+.label_field {
+  font-size: 0.75rem;
+  color: var(--fcolor-1);
+  margin-bottom: 0.875rem;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  padding: 0.9375rem 1.25rem;
+  font-size: 0.75rem;
+  outline: 1px solid var(--fcolor-4);
+  margin: 0;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--fcolor-bg-2);
+  color: var(--fcolor-text-color);
+}
+
+.field:active,
+.field:focus {
+  outline: 1px solid var(--fcolor-2);
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.Label {
+  font-size: 0.75rem;
+  color: var(--color-7);
+}
+
+.selected-item {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  padding: 1rem 6rem 1rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid var(--color-1);
+  border-radius: 5px;
+  position: relative;
+}
+
+.selected-item::after {
+  content: url("../starter-code/assets/icon-arrow-down.svg");
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#drop_down {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  margin-top: 1rem;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+#drop_down.show {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#drop_down > ul > li {
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-5);
+  padding: 1rem 6rem 1rem 1rem;
+  cursor: pointer;
+}
+
+#drop_down > ul > li.selected {
+  color: var(--color-1);
 }
 /*# sourceMappingURL=style.css.map */
