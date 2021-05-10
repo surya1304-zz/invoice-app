@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Invoices</title>
+  </head>
+  <body>
+    <div class="main">
+      <sidebar>
+        <div class="side_bar">
+          <div class="top">
+            <div class="figure"></div>
+          </div>
+          <div class="bottom">
+            <button class="theme"><img src="./assets/icon-moon.svg" alt="" srcset=""></button>
+            <img class="avatar" src="./assets/image-avatar.jpg" alt="" />
+          </div>
+        </div>
+      </sidebar>
+      <div class="content">
+        <header>
+          <div class="header">
+            <div class="left">
+              <h1 class="invoice">Invoices</h1>
+              <p class="invoice-count">No invoices</p>
+            </div>
+            <div class="right">
+                <div class="filter_dropdown">
+                    <div class="dropdown">
+                      <div class="selected-item">filter by status</div>
+                      <div id="drop_down">
+                        <ul>
+                          <li>
+                            <div class="dropdown-item">
+                              <input
+                                class="regular-checkbox"
+                                type="radio"
+                                name="status"
+                                id="Draft"
+                              />
+                              <label for="Draft" class="text">Draft</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dropdown-item">
+                              <input
+                                class="regular-checkbox"
+                                type="radio"
+                                name="status"
+                                id="Pending"
+                              />
+                              <label for="Pending" class="text">Pending</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dropdown-item">
+                              <input
+                                class="regular-checkbox"
+                                type="radio"
+                                name="status"
+                                id="Paid"
+                              />
+                              <label for="Paid" class="text">Paid</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="new_invoice_button">
+                      <button class="button1">New Invoice</button>
+                  </div>
+            </div>
+          </div>
+        </header>
+        <invoices>
+          <div class="empty">
+            <img src="./assets/illustration-empty.svg" alt="">
+            <p class="head">
+              There is nothing here
+            </p>
+            <p class="desc">
+            Create an invoice by clicking the<br/>
+            <b>New Invoice</b> button and get started
+          </p>
+          </div>
+        </invoices>
+      </div>
+    </div>
+
+    <script src="../JS/data-fetcher.js" type="text/javascript"></script>
+    <script src="../JS/drop_down.js" type="text/javascript"></script>
+  </body>
+</html>

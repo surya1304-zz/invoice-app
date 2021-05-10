@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Spartan", sans-serif;
+}
+
+.container {
+  margin-top: -7rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) 2rem;
+  gap: 1rem;
+  justify-items: self-start;
+  width: 50rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  align-items: center;
+}
+
+.id {
+  cursor: default;
+  color: #0c0e16;
+  font-size: 0.75rem;
+}
+
+.id::before {
+  cursor: default;
+  content: "#";
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #7e88c3;
+}
+
+.due_date {
+  cursor: default;
+  font-size: 0.75rem;
+}
+
+.name {
+  cursor: default;
+  font-size: 0.75rem;
+}
+
+.amount {
+  cursor: default;
+  font-size: 1rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.status {
+  cursor: default;
+  justify-self: center;
+  width: 6.5rem;
+  padding: 1rem 0;
+  font-weight: 700;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  align-self: center;
+}
+
+.status::before {
+  content: "\f111";
+  font-size: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: relative;
+  left: -5px;
+  z-index: 0;
+}
+
+.status.paid {
+  background: rgb(243, 253, 250);
+  color: rgb(51, 214, 159);
+}
+
+.status.pending {
+  background: rgb(255, 249, 240);
+  color: rgb(255, 143, 0);
+}
+
+.status.draft {
+  background: rgb(244, 244, 245);
+  color: rgb(55, 59, 83);
+}
+
+.arrow {
+  cursor: pointer;
+  content: url("../../starter-code/assets/icon-arrow-right.svg");
+  position: relative;
+  left: 5px;
+}

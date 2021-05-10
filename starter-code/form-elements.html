@@ -53,28 +53,6 @@
       </div>
     </div>
     <script src="../JS/date-picker.js"></script>
-    <script>
-      const p = document.getElementsByClassName("selected-item");
-      const k = document.querySelectorAll("#drop_down ul li");
-      const dropdown = document.getElementById("drop_down");
-      // let pk = "";
-
-      p[0].addEventListener("click", function (e) {
-        dropdown.classList.toggle("show");
-      });
-
-      for (let i = 0; i < k.length; i++) {
-        k[i].addEventListener("click", function (e) {
-          p[0].innerHTML = k[i].innerHTML;
-          k[i].classList.add("selected");
-          for (let d = 0; d < k.length; d++) {
-            if (k[d].classList.contains("selected") && d != i) {
-              k[d].classList.remove("selected");
-            }
-          }
-          dropdown.classList.remove("show");
-        });
-      }
-    </script>
+    <script src="../JS/drop_down.js" type="text/javascript"></script>
   </body>
 </html>
