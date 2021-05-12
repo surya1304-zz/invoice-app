@@ -54,7 +54,6 @@ fetch("../starter-code/data.json")
         let amount = document.createElement("h3");
         amount.innerHTML = `£ ${p[i].total}`;
         amount.classList.add("amount");
-        console.log(amount);
 
         let status = document.createElement("p");
         status.classList.add("status");

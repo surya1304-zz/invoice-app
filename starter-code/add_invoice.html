@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="new">
+      <h1 class="new__invoice">New Invoice</h1>
+      <h5 class="new__details">Bill From</h5>
+      <div class="new__bill-from">
+        <label for="fromStreetAddress" class="label">Street Address</label>
+        <input class="invoice__input" type="text" id="fromStreetAddress" />
+        <div class="new__bill-address">
+          <div class="city">
+            <label for="fromCity" class="label">City</label>
+            <input class="invoice__input" type="text" id="fromCity" />
+          </div>
+          <div class="postCode">
+            <label for="fromPostCode" class="label">Post Code</label>
+            <input class="invoice__input" type="text" id="fromPostCode" />
+          </div>
+          <div class="country">
+            <label for="fromCountry" class="label">Country</label>
+            <input class="invoice__input" type="text" id="fromCountry" />
+          </div>
+        </div>
+      </div>
+      <h5 class="new__details">Bill To</h5>
+      <div class="new__bill-to">
+        <label for="toClientName" class="label">Client's name</label>
+        <input class="invoice__input" type="text" id="toClientName" />
+        <label for="toClientEmail" class="label">Client's Email</label>
+        <input
+          class="invoice__input"
+          type="email"
+          id="toClientEmail"
+          placeholder="e.g. email@example.com"
+        />
+        <label for="toStreetAddress" class="label">Street Address</label>
+        <input type="text" id="toStreetAddress" class="invoice__input" />
+        <div class="new__bill-address">
+          <div class="city">
+            <label for="toCity" class="label">City</label>
+            <input type="text" class="invoice__input" id="toCity" />
+          </div>
+          <div class="postCode">
+            <label for="toPostCode" class="label">Post Code</label>
+            <input type="text" class="invoice__input" id="toPostCode" />
+          </div>
+          <div class="country">
+            <label for="toCountry" class="label">Country</label>
+            <input type="text" class="invoice__input" id="toCountry" />
+          </div>
+        </div>
+      </div>
+      <div class="new__date-payment">
+        <div class="new__date">
+          <label for="invoiceDate" class="label">Invoice Date</label>
+          <div class="date-picker">
+            <div class="issue-date">
+              <div class="selected-date"></div>
+              <img src="./assets/icon-calendar.svg" alt="" />
+            </div>
+            <div class="dates">
+              <div class="month">
+                <div class="arrows prev-mth">
+                  <img
+                    src="../starter-code/assets/icon-arrow-left.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="mth"></div>
+                <div class="arrows next-mth">
+                  <img
+                    src="../starter-code/assets/icon-arrow-right.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="days"></div>
+            </div>
+          </div>
+        </div>
+        <div class="new__payment-terms">
+          <div class="new__payment-dropdown">
+            <label for="dropdown" class="label">Payment Terms</label>
+            <div class="selected-item">Net 30 Days</div>
+            <div id="dropdown">
+              <ul>
+                <li>Net 1 Day</li>
+                <li>Net 7 Days</li>
+                <li>Net 14 Days</li>
+                <li class="selected">Net 30 Days</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label for="projectDescription" class="label">Project Description</label>
+      <input
+        type="text"
+        class="invoice__input"
+        id="projectDescription"
+        placeholder="e.g. Graphic Design Service"
+      />
+      <h2 class="invoice__itemList">Item List</h2>
+      <div class="invoice__items">
+        <label for="itemName" class="label">Item Name</label>
+        <label for="quantity" class="label">Qty.</label>
+        <label for="price" class="label">Price</label>
+        <label for="total" class="label">Total</label>
+      </div>
+      <button class="button5">+ Add New Item</button>
+      <div class="buttons">
+        <button class="button3">Discard</button>
+        <div class="invoice__save">
+          <button class="button4">Save as Draft</button>
+          <button id="saveandsend" class="button2">Save & Send</button>
+        </div>
+      </div>
+    </div>
+    <script src="../JS/payment_dropdown.js"></script>
+    <script src="../JS/date-picker.js"></script>
+  </body>
+</html>

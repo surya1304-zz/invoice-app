@@ -1,8 +1,8 @@
 const date_picker_element = document.querySelector(".date-picker");
-const form_element = document.querySelector(".Form-element");
 const selected_date_element = document.querySelector(
   ".date-picker .selected-date"
 );
+const selected = document.querySelector(".issue-date");
 const dates_element = document.querySelector(".date-picker .dates");
 const mth_element = document.querySelector(".date-picker .dates .month .mth");
 const next_mth_element = document.querySelector(
@@ -52,11 +52,15 @@ prev_mth_element.addEventListener("click", goToPrevMonth);
 
 // FUNCTIONS
 function toggleDatePicker(e) {
-  if (
-    !checkEventPathForClass(e.composedPath(), "dates") &&
-    !form_element.classList.contains("disabled")
-  ) {
+  let dontoggle = false;
+  e.composedPath().map((item) => {
+    if (item.classList)
+      dontoggle = dontoggle || item.classList.contains("dates");
+  });
+  console.log(dontoggle);
+  if (!dontoggle) {
     dates_element.classList.toggle("active");
+    selected.classList.toggle("active");
   }
 }
 
@@ -98,7 +102,6 @@ function populateDates(e) {
     if (i < amount_days) {
       const day_element = document.createElement("div");
       day_element.classList.add("day");
-      day_element.classList.add("light");
       day_element.textContent = i + 1;
 
       if (
@@ -135,14 +138,18 @@ function populateDates(e) {
 
 // HELPER FUNCTIONS
 function checkEventPathForClass(path, selector) {
+  console.log("I'm called");
+  console.log(path);
   for (let i = 0; i < path.length; i++) {
     if (path[i].classList && path[i].classList.contains(selector)) {
+      console.log("I returned true");
       return true;
     }
   }
-
+  console.log("I returned False");
   return false;
 }
+
 function formatDate(d) {
   let day = d.getDate();
   if (day < 10) {

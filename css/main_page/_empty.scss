@@ -25,6 +25,7 @@ button {
 
   &__right {
     display: flex;
+    flex-direction: row;
 
     .new_invoice_button {
       position: relative;
@@ -136,6 +137,7 @@ ul {
   border-radius: 1rem;
   position: fixed;
   left: -1rem;
+  z-index: 100001;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -236,5 +238,10 @@ ul {
     color: var(--color-6);
     font-size: 0.75rem;
     text-align: center;
+  }
+
+  &.disabled {
+    user-select: none;
+    pointer-events: none;
   }
 }

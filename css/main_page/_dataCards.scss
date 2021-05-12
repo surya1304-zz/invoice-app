@@ -103,3 +103,117 @@
   position: relative;
   left: 5px;
 }
+
+.tot {
+  display: flex;
+}
+
+.side_invoice {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  padding: 2rem;
+  height: 100vh;
+  background: white;
+  border-radius: 10px;
+  padding-left: 10rem;
+  width: 500px;
+  overflow-y: scroll;
+
+  .new {
+    &__invoice {
+      padding-bottom: 1rem;
+    }
+
+    &__details {
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    .buttons {
+      bottom: 0;
+    }
+  }
+
+  &.show {
+    display: block;
+  }
+}
+
+.label {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.invoice__itemList {
+  margin-top: 3rem;
+}
+
+.buttons {
+  margin-top: 2rem;
+}
+
+@media screen and (max-height: 1000px) {
+  .new {
+    margin-bottom: 7.5rem;
+  }
+
+  .buttons {
+    position: fixed;
+    background-color: white;
+    width: 500px;
+    padding: 2rem;
+    left: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+    #discard {
+      margin-left: 8rem;
+    }
+  }
+}
+
+.button1 {
+  background-color: var(--color-1);
+  color: white;
+  border-radius: 2rem;
+  position: relative;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &::before {
+    content: url("../starter-code/assets/icon-plus.svg");
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: white;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    background-color: var(--color-2);
+  }
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
