@@ -129,14 +129,11 @@
       padding-top: 2rem;
       padding-bottom: 1rem;
     }
-
-    .buttons {
-      bottom: 0;
-    }
   }
 
   &.show {
     display: block;
+    animation: animate 500ms ease-in-out forwards;
   }
 }
 
@@ -174,6 +171,8 @@
 }
 
 .button1 {
+  display: inline-flex;
+  align-items: center;
   background-color: var(--color-1);
   color: white;
   border-radius: 2rem;

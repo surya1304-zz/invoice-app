@@ -3,6 +3,10 @@
   font-size: 0.75rem;
 }
 
+#addItem {
+  margin-top: 1rem;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -28,6 +32,7 @@ ul {
 .invoice__input {
   font-weight: 700;
   display: block;
+  position: relative;
   border: 0;
   background: 0;
   width: 100%;
@@ -62,6 +67,7 @@ ul {
   .dates {
     margin-top: 1rem;
     position: absolute;
+    z-index: 1;
     left: 0;
     right: 0;
     background: white;
@@ -139,7 +145,8 @@ ul {
   #dropdown {
     background: white;
     position: absolute;
-    top: 5.2rem;
+    z-index: 1;
+    top: 7.2rem;
     left: 0;
     right: 0;
     border: 1px solid var(--color-5);
@@ -173,8 +180,32 @@ ul {
 }
 
 .invoice__items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
   display: grid;
-  grid-template-columns: 3fr 1fr 2fr 2fr;
+  grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
+  gap: 1rem;
+}
+
+.delete-icon {
+  cursor: pointer;
+  place-self: center;
+
+  &::after {
+    content: url("../../starter-code/assets/icon-delete.svg");
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover {
+    background: #eee;
+  }
 }
 
 button {

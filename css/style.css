@@ -517,12 +517,10 @@ ul {
   padding-bottom: 1rem;
 }
 
-.side_invoice .new .buttons {
-  bottom: 0;
-}
-
 .side_invoice.show {
   display: block;
+  -webkit-animation: animate 500ms ease-in-out forwards;
+          animation: animate 500ms ease-in-out forwards;
 }
 
 .label {
@@ -558,6 +556,12 @@ ul {
 }
 
 .button1 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: var(--color-1);
   color: white;
   border-radius: 2rem;
@@ -612,6 +616,10 @@ ul {
   font-size: 0.75rem;
 }
 
+#addItem {
+  margin-top: 1rem;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -637,6 +645,7 @@ ul {
 .invoice__input {
   font-weight: 700;
   display: block;
+  position: relative;
   border: 0;
   background: 0;
   width: 100%;
@@ -678,6 +687,7 @@ ul {
 .new__date .dates {
   margin-top: 1rem;
   position: absolute;
+  z-index: 1;
   left: 0;
   right: 0;
   background: white;
@@ -779,7 +789,8 @@ ul {
 .new__payment-dropdown #dropdown {
   background: white;
   position: absolute;
-  top: 5.2rem;
+  z-index: 1;
+  top: 7.2rem;
   left: 0;
   right: 0;
   border: 1px solid var(--color-5);
@@ -816,10 +827,45 @@ ul {
 }
 
 .invoice__items {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 1fr 2fr 2fr;
-      grid-template-columns: 3fr 1fr 2fr 2fr;
+  -ms-grid-columns: 3fr 1fr 2fr 2fr 1fr;
+      grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
+  gap: 1rem;
+}
+
+.delete-icon {
+  cursor: pointer;
+  place-self: center;
+}
+
+.delete-icon::after {
+  content: url("../../starter-code/assets/icon-delete.svg");
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.delete-icon:hover {
+  background: #eee;
 }
 
 button {

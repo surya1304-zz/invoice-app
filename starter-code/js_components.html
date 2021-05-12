@@ -123,16 +123,26 @@
           />
           <h2 class="invoice__itemList">Item List</h2>
           <div class="invoice__items">
-            <label for="itemName" class="label">Item Name</label>
-            <label for="quantity" class="label">Qty.</label>
-            <label for="price" class="label">Price</label>
-            <label for="total" class="label">Total</label>
+            <div class="item">
+              <label for="itemName" class="label">Item Name</label>
+              <label for="quantity" class="label">Qty.</label>
+              <label for="price" class="label">Price</label>
+              <label for="total" class="label">Total</label>
+              <div></div>
+            </div>
+            <div class="item">
+              <input type="text" class="invoice__input" />
+              <input type="text" class="invoice__input" />
+              <input type="text" class="invoice__input" />
+              <input type="text" class="invoice__input" />
+              <button class="delete-icon"></button>
+            </div>
           </div>
           <button id="addItem" class="button5">+ Add New Item</button>
           <div class="buttons">
-            <button id="discard" class="button3">Discard</button>
+            <button onclick="removeInvoice()" id="discard" class="button3">Discard</button>
             <div class="invoice__save">
-              <button class="button4">Save as Draft</button>
+              <button id="draft" class="button4">Save as Draft</button>
               <button id="saveandsend" class="button2">Save & Send</button>
             </div>
           </div>
@@ -214,6 +224,12 @@
       let add_invoice = document.querySelector(".side_invoice");
       let empty = document.querySelector(".empty");
       let overlay = document.querySelector("#overlay");
+
+      const removeInvoice = () => {
+        add_invoice.classList.remove("show");
+        empty.classList.remove("disabled");
+        overlay.style.display = "none"; 
+      }
 
       const openInvoice = () =>{
         add_invoice.classList.add("show");
