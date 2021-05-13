@@ -765,6 +765,7 @@ ul {
 .new__payment-dropdown {
   height: 100%;
   cursor: pointer;
+  position: relative;
 }
 
 .new__payment-dropdown .selected-item {

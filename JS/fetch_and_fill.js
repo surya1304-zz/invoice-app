@@ -19,7 +19,7 @@ const months = [
   "Dec",
 ];
 
-fetch("../starter-code/data.json")
+fetch("http://localhost:3000")
   .then((resp) => resp.json())
   .then((data) => {
     store.dispatch(actions.add(data));

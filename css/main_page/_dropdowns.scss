@@ -127,6 +127,7 @@ ul {
 .new__payment-dropdown {
   height: 100%;
   cursor: pointer;
+  position: relative;
   .selected-item {
     display: flex;
     font-weight: 700;
