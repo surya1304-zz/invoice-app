@@ -629,6 +629,10 @@ ul {
   color: var(--color-7);
 }
 
+.new.validate > .invoice__input:invalid {
+  border: 1px solid red;
+}
+
 .new__details {
   color: var(--color-1);
 }
@@ -656,7 +660,7 @@ ul {
 }
 
 .invoice__input:active, .invoice__input:focus {
-  outline: 1px solid var(--color-1);
+  border: 1px solid var(--color-1);
 }
 
 .new__date {
@@ -759,10 +763,8 @@ ul {
 }
 
 .new__payment-dropdown {
-  background: white;
+  height: 100%;
   cursor: pointer;
-  position: relative;
-  top: 1px;
 }
 
 .new__payment-dropdown .selected-item {

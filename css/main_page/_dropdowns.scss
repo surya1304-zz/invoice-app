@@ -17,6 +17,10 @@ ul {
 }
 
 .new {
+  &.validate > .invoice__input:invalid {
+    border: 1px solid red;
+  }
+
   &__details {
     color: var(--color-1);
   }
@@ -43,7 +47,7 @@ ul {
 
   &:active,
   &:focus {
-    outline: 1px solid var(--color-1);
+    border: 1px solid var(--color-1);
   }
 }
 
@@ -121,10 +125,8 @@ ul {
 }
 
 .new__payment-dropdown {
-  background: white;
+  height: 100%;
   cursor: pointer;
-  position: relative;
-  top: 1px;
   .selected-item {
     display: flex;
     font-weight: 700;

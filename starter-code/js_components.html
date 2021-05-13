@@ -22,52 +22,54 @@
     <div id="overlay"></div>
     <div class="tot">
       <div class="side_invoice">
-        <div class="new">
+        <form class="new" method="POST" onsubmit="return formValidate()">
           <h1 class="new__invoice">New Invoice</h1>
           <h5 class="new__details">Bill From</h5>
           <div class="new__bill-from">
             <label for="fromStreetAddress" class="label">Street Address</label>
-            <input class="invoice__input" type="text" id="fromStreetAddress" />
+            <input required name="fromStreetAddress" class="invoice__input" type="text" id="fromStreetAddress" />
             <div class="new__bill-address">
               <div class="city">
                 <label for="fromCity" class="label">City</label>
-                <input class="invoice__input" type="text" id="fromCity" />
+                <input required name="fromCity" class="invoice__input" type="text" id="fromCity" />
               </div>
               <div class="postCode">
                 <label for="fromPostCode" class="label">Post Code</label>
-                <input class="invoice__input" type="text" id="fromPostCode" />
+                <input required name="fromPostCode" class="invoice__input" type="text" id="fromPostCode" />
               </div>
               <div class="country">
                 <label for="fromCountry" class="label">Country</label>
-                <input class="invoice__input" type="text" id="fromCountry" />
+                <input required name="fromCountry" class="invoice__input" type="text" id="fromCountry" />
               </div>
             </div>
           </div>
           <h5 class="new__details">Bill To</h5>
           <div class="new__bill-to">
             <label for="toClientName" class="label">Client's name</label>
-            <input class="invoice__input" type="text" id="toClientName" />
+            <input required name="toClientName" class="invoice__input" type="text" id="toClientName" />
             <label for="toClientEmail" class="label">Client's Email</label>
             <input
+            required
+              name="toClientEmail"
               class="invoice__input"
               type="email"
               id="toClientEmail"
               placeholder="e.g. email@example.com"
             />
             <label for="toStreetAddress" class="label">Street Address</label>
-            <input type="text" id="toStreetAddress" class="invoice__input" />
+            <input required name="toStreetAddress" type="text" id="toStreetAddress" class="invoice__input" />
             <div class="new__bill-address">
               <div class="city">
                 <label for="toCity" class="label">City</label>
-                <input type="text" class="invoice__input" id="toCity" />
+                <input required name="toCity" type="text" class="invoice__input" id="toCity" />
               </div>
               <div class="postCode">
                 <label for="toPostCode" class="label">Post Code</label>
-                <input type="text" class="invoice__input" id="toPostCode" />
+                <input required name="toPostCode" type="text" class="invoice__input" id="toPostCode" />
               </div>
               <div class="country">
                 <label for="toCountry" class="label">Country</label>
-                <input type="text" class="invoice__input" id="toCountry" />
+                <input required name="toCountry" type="text" class="invoice__input" id="toCountry" />
               </div>
             </div>
           </div>
@@ -116,6 +118,8 @@
           </div>
           <label for="projectDescription" class="label">Project Description</label>
           <input
+          required
+            name="projectDescription"
             type="text"
             class="invoice__input"
             id="projectDescription"
@@ -131,22 +135,22 @@
               <div></div>
             </div>
             <div class="item">
-              <input type="text" class="invoice__input" />
-              <input type="text" class="invoice__input" />
-              <input type="text" class="invoice__input" />
-              <input type="text" class="invoice__input" />
+              <input required name="itemName" type="text" class="invoice__input" />
+              <input required name="quantity" type="text" class="invoice__input" />
+              <input required name="price" type="text" class="invoice__input" />
+              <p class="total invoice__input" ></p>
               <button class="delete-icon"></button>
             </div>
           </div>
           <button id="addItem" class="button5">+ Add New Item</button>
           <div class="buttons">
-            <button onclick="removeInvoice()" id="discard" class="button3">Discard</button>
+            <button id="discard" class="button3">Discard</button>
             <div class="invoice__save">
-              <button id="draft" class="button4">Save as Draft</button>
-              <button id="saveandsend" class="button2">Save & Send</button>
+              <button id="draft" type="submit" class="button4">Save as Draft</button>
+              <button id="saveandsend" type="submit" class="button2">Save & Send</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <sidebar>
         <div class="side_bar">
@@ -225,11 +229,14 @@
       let empty = document.querySelector(".empty");
       let overlay = document.querySelector("#overlay");
 
-      const removeInvoice = () => {
+      const discard = document.getElementById("discard");
+
+      discard.addEventListener("click", (e) => {
+        e.preventDefault();
         add_invoice.classList.remove("show");
         empty.classList.remove("disabled");
-        overlay.style.display = "none"; 
-      }
+        overlay.style.display = "none";
+      })
 
       const openInvoice = () =>{
         add_invoice.classList.add("show");
@@ -239,8 +246,9 @@
     </script>
     <script src="../JS/payment_dropdown.js"></script>
     <script src="../JS/date-picker.js"></script>
-    <script src="../JS/adding_invoice.js"></script>
+    <script src="../JS/adding_invoice.js" type="module"></script>
     <script src="../JS/fetch_and_fill.js" type="module"></script>
     <script src="../JS/drop_down.js"></script>
+    <script src="../JS/form_handler.js"></script>
   </body>
 </html>

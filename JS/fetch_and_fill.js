@@ -23,8 +23,9 @@ fetch("../starter-code/data.json")
   .then((resp) => resp.json())
   .then((data) => {
     store.dispatch(actions.add(data));
-    console.log(store.getState());
-    let p = store.getState().k;
+    localStorage.setItem("jsonData", JSON.stringify(store.getState().k));
+    let temp = localStorage.getItem("jsonData");
+    let p = JSON.parse(temp);
     let count;
     p.length === 0
       ? (count = `No invoices`)
