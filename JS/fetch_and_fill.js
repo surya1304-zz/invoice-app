@@ -120,7 +120,6 @@ if (!localStorage.getItem("jsonData")) {
     });
 } else {
   let temp = localStorage.getItem("jsonData");
-  console.log(temp);
   let p = JSON.parse(temp);
   let count;
   p.length === 0

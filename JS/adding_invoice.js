@@ -21,6 +21,7 @@ add_Item.addEventListener("click", function (e) {
   input3.classList.add("price");
   input3.name = "price";
   input3.required = true;
+  input3.setAttribute("onchange", "Hello()");
   const input4 = document.createElement("p");
   input4.classList.add("invoice__input");
   input4.classList.add("total");

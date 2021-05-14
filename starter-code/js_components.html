@@ -137,7 +137,7 @@
             <div class="item">
               <input required name="itemName" type="text" class="invoice__input" />
               <input required name="quantity" type="text" class="invoice__input quantity" />
-              <input required name="price" type="text" class="invoice__input price" />
+              <input onchange="Hello()" required name="price" type="text" class="invoice__input price" />
               <p class="total invoice__input" ></p>
               <button class="delete-icon"></button>
             </div>
@@ -238,11 +238,24 @@
         overlay.style.display = "none";
       })
 
+      const Hello = () => {
+        let quantities = document.querySelectorAll(".quantity");
+        let totals = document.querySelectorAll('.total');
+        let prices = document.querySelectorAll(".price");
+        for(let i=0;i<quantities.length;i++)
+        {
+          let yt = quantities[i].value * prices[i].value;
+          totals[i].innerHTML = yt;
+          totals[i].dataset.value = yt;
+        }
+      };
+
       const openInvoice = () =>{
         add_invoice.classList.add("show");
         empty.classList.add("disabled");
         overlay.style.display = "block";
       }
+
     </script>
     <script src="../JS/payment_dropdown.js"></script>
     <script src="../JS/date-picker.js"></script>
