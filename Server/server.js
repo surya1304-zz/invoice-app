@@ -6,6 +6,11 @@ const express = require("express");
 
 const app = express();
 
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -117,16 +122,49 @@ const invoice_model = new mongoose.Schema({
 });
 
 const invoices = mongoose.model("invoice", invoice_model);
-invoices
-  .find()
-  .lean()
-  .then((res) => console.log(res));
 
 app.get("/", (req, res) => {
   invoices
     .find()
     .lean()
     .then((data) => res.send(JSON.stringify(data)));
+});
+
+app.post("/", (req, res) => {
+  let {
+    id,
+    createdAt,
+    paymentDue,
+    description,
+    paymentTerms,
+    status,
+    senderAddress,
+    clientName,
+    clientEmail,
+    clientAddress,
+    items,
+    total,
+  } = req.body;
+
+  console.log(req.body);
+
+  invoices
+    .insertMany({
+      id: id,
+      createdAt: createdAt,
+      paymentDue: paymentDue,
+      description: description,
+      paymentTerms: paymentTerms,
+      status: status,
+      senderAddress: senderAddress,
+      clientName: clientName,
+      clientEmail: clientEmail,
+      clientAddress: clientAddress,
+      items: items,
+      total: total,
+    })
+    .then((resp) => res.send(resp))
+    .catch((err) => res.send(err));
 });
 
 app.listen(3000);

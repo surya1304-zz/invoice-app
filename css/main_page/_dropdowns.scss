@@ -114,6 +114,10 @@ ul {
         &.selected {
           color: var(--color-1);
         }
+
+        &.inactive {
+          color: grey;
+        }
       }
     }
 

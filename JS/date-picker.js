@@ -137,19 +137,6 @@ function populateDates(e) {
 }
 
 // HELPER FUNCTIONS
-function checkEventPathForClass(path, selector) {
-  console.log("I'm called");
-  console.log(path);
-  for (let i = 0; i < path.length; i++) {
-    if (path[i].classList && path[i].classList.contains(selector)) {
-      console.log("I returned true");
-      return true;
-    }
-  }
-  console.log("I returned False");
-  return false;
-}
-
 function formatDate(d) {
   let day = d.getDate();
   if (day < 10) {

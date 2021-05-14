@@ -756,6 +756,10 @@ ul {
   color: var(--color-1);
 }
 
+.new__date .dates .days .day.inactive {
+  color: grey;
+}
+
 .new__date .dates.active {
   display: block;
   -webkit-animation: animate 500ms ease-in-out forwards;

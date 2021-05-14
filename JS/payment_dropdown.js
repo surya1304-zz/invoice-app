@@ -11,6 +11,7 @@ for (let i = 0; i < kl.length; i++) {
   kl[i].addEventListener("click", function (e) {
     kl[i].classList.add("selected");
     pl[0].innerHTML = kl[i].innerHTML;
+    pl[0].dataset.value = kl[i].value;
     for (let d = 0; d < kl.length; d++) {
       if (kl[d].classList.contains("selected") && d != i) {
         kl[d].classList.remove("selected");

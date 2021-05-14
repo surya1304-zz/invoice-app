@@ -1,6 +1,21 @@
 let add_form = document.forms[0];
 let newer = document.querySelector(".new");
-console.log(newer);
+let newee = document.querySelector(".selected-date");
+let payTerms = document.querySelector(".selected-item");
+let draft = document.querySelector("#draft");
+let saveandsend = document.querySelector("#saveandsend");
+
+draft.addEventListener("click", (e) => {
+  e.preventDefault();
+  formValidate();
+});
+
+saveandsend.addEventListener("click", (e) => {
+  e.preventDefault();
+  formValidate();
+});
+
+let total = document.querySelector(".total");
 
 function formValidate() {
   newer.classList.add("validate");
@@ -18,6 +33,9 @@ function formValidate() {
   let itemName = add_form["itemName"];
   let quantity = add_form["quantity"];
   let price = add_form["price"];
+  let invoiceDate = new Date(newee.dataset.value);
+  let due = payTerms.dataset.value;
+  let paymentDue = new Date(invoiceDate.getTime() + due * 24 * 60 * 60 * 1000);
 
   console.log(fromStreetAddress);
   console.log(fromCity);
@@ -30,11 +48,19 @@ function formValidate() {
   console.log(toPostCode);
   console.log(toCountry);
   console.log(projectDescription);
-  console.log(itemName);
-  console.log(typeof itemName);
-  console.log(itemName.length);
-  console.log(quantity);
   console.log(price);
+
+  console.log(invoiceDate);
+  console.log(due);
+  console.log(paymentDue);
+
+  if (!itemName.length) {
+    console.log(`${itemName.value} ${quantity.value} ${price.value}`);
+  } else if (itemName.length) {
+    for (let i = 0; i < itemName.length; i++)
+      `${itemName[i].value} ${quantity[i].value} ${price[i].value}`;
+  }
+
   let returnValue = true;
 
   if (fromStreetAddress === "") {
@@ -88,28 +114,23 @@ function formValidate() {
         console.log("Item Name Can't be empty");
         returnValue = returnValue && false;
       }
-      //   console.log(itemName[i].value);
     }
     for (let i = 0; i < quantity.length; i++) {
-      if (itemName[i].value === "") {
+      if (quantity[i].value === "") {
         console.log("Quantity Can't be empty");
         returnValue = returnValue && false;
       }
-      //   console.log(quantity[i].value);
     }
     for (let i = 0; i < price.length; i++) {
-      if (itemName[i].value === "") {
+      if (price[i].value === "") {
         console.log("Price Can't be empty");
         returnValue = returnValue && false;
       }
-      //   console.log(price[i].value);
     }
   } else if (!itemName.length) {
-    if (itemName.value === "" && quantity.value === "" && price.value === "")
+    if (itemName.value === "" && quantity.value === "" && price.value === "") {
       returnValue = returnValue && false;
-    // console.log(itemName.value);
-    // console.log(quantity.value);
-    // console.log(price.value);
+    }
   }
   return returnValue;
 }

@@ -10,12 +10,17 @@ add_Item.addEventListener("click", function (e) {
   const input1 = document.createElement("input");
   input1.classList.add("invoice__input");
   input1.name = "itemName";
+  input1.required = true;
   const input2 = document.createElement("input");
   input2.classList.add("invoice__input");
+  input2.classList.add("quantity");
   input2.name = "quantity";
+  input2.required = true;
   const input3 = document.createElement("input");
   input3.classList.add("invoice__input");
+  input3.classList.add("price");
   input3.name = "price";
+  input3.required = true;
   const input4 = document.createElement("p");
   input4.classList.add("invoice__input");
   input4.classList.add("total");
