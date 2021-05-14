@@ -25,7 +25,6 @@ if (!localStorage.getItem("jsonData")) {
       store.dispatch(actions.add(data));
       localStorage.setItem("jsonData", JSON.stringify(store.getState().k));
       let temp = localStorage.getItem("jsonData");
-      console.log(temp);
       let p = JSON.parse(temp);
       let count;
       p.length === 0
@@ -80,6 +79,7 @@ if (!localStorage.getItem("jsonData")) {
         div.classList.add("empty");
 
         let img = document.createElement("img");
+        img.classList.add("empty-img");
         img.src = "../starter-code/assets/illustration-empty.svg";
 
         let head = document.createElement("p");
