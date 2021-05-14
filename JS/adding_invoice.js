@@ -16,6 +16,7 @@ add_Item.addEventListener("click", function (e) {
   input2.classList.add("quantity");
   input2.name = "quantity";
   input2.required = true;
+  input2.setAttribute("onchange", "Hello()");
   const input3 = document.createElement("input");
   input3.classList.add("invoice__input");
   input3.classList.add("price");
@@ -46,74 +47,3 @@ add_Item.addEventListener("click", function (e) {
     });
   }
 });
-
-function GenerateId() {
-  var randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var result = "";
-  for (var i = 0; i < 2; i++) {
-    result += randomChars.charAt(
-      Math.floor(Math.random() * randomChars.length)
-    );
-  }
-
-  var randomChars1 = "1234567890";
-  for (var i = 0; i < 4; i++) {
-    result += randomChars1.charAt(
-      Math.floor(Math.random() * randomChars1.length)
-    );
-  }
-
-  return result;
-}
-
-let jsonData = localStorage.getItem("jsonData");
-let parsed = JSON.parse(jsonData);
-let accumilator = [];
-
-for (let i = 0; i < parsed.length; i++) {
-  accumilator.push(parsed[i].id);
-}
-
-let save = document.querySelector("#saveandsend");
-
-save.addEventListener("click", () => addNewInvoice());
-
-const addNewInvoice = () => {
-  let id = GenerateId();
-  while (true) {
-    if (accumilator.includes(id)) id = GenerateId();
-    else break;
-  }
-  console.log(id);
-};
-
-// "id": "RT3080",
-//     "createdAt": "2021-08-18",
-//     "paymentDue": "2021-08-19",
-//     "description": "Re-branding",
-//     "paymentTerms": 1,
-//     "clientName": "Jensen Huang",
-//     "clientEmail": "jensenh@mail.com",
-//     "status": "paid",
-//     "senderAddress": {
-//       "street": "19 Union Terrace",
-//       "city": "London",
-//       "postCode": "E1 3EZ",
-//       "country": "United Kingdom"
-//     },
-//     "clientAddress": {
-//       "street": "106 Kendell Street",
-//       "city": "Sharrington",
-//       "postCode": "NR24 5WQ",
-//       "country": "United Kingdom"
-//     },
-//     "items": [
-//       {
-//         "name": "Brand Guidelines",
-//         "quantity": 1,
-//         "price": 1800.9,
-//         "total": 1800.9
-//       }
-//     ],
-//     "total": 1800.9
-//   }

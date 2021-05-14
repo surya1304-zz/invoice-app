@@ -10,9 +10,137 @@ draft.addEventListener("click", (e) => {
   formValidate();
 });
 
+function GenerateId() {
+  var randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var result = "";
+  for (var i = 0; i < 2; i++) {
+    result += randomChars.charAt(
+      Math.floor(Math.random() * randomChars.length)
+    );
+  }
+
+  var randomChars1 = "1234567890";
+  for (var i = 0; i < 4; i++) {
+    result += randomChars1.charAt(
+      Math.floor(Math.random() * randomChars1.length)
+    );
+  }
+
+  return result;
+}
+
+let jsonData = localStorage.getItem("jsonData");
+let parsed = JSON.parse(jsonData);
+let accumilator = [];
+
+for (let i = 0; i < parsed.length; i++) {
+  accumilator.push(parsed[i].id);
+}
+
+const addNewInvoice = () => {
+  let id = GenerateId();
+  while (true) {
+    if (accumilator.includes(id)) id = GenerateId();
+    else break;
+  }
+  return id;
+};
+
 saveandsend.addEventListener("click", (e) => {
   e.preventDefault();
-  formValidate();
+
+  let tot = document.querySelectorAll(".total");
+  console.log(tot);
+
+  let fromStreetAddress1 = add_form["fromStreetAddress"].value;
+  let fromCity1 = add_form["fromCity"].value;
+  let fromPostCode1 = add_form["fromPostCode"].value;
+  let fromCountry1 = add_form["fromCountry"].value;
+  let toClientName1 = add_form["toClientName"].value;
+  let toClientEmail1 = add_form["toClientEmail"].value;
+  let toStreetAddress1 = add_form["toStreetAddress"].value;
+  let toCity1 = add_form["toCity"].value;
+  let toPostCode1 = add_form["toPostCode"].value;
+  let toCountry1 = add_form["toCountry"].value;
+  let projectDescription1 = add_form["projectDescription"].value;
+  let itemName1 = add_form["itemName"];
+  let quantity1 = add_form["quantity"];
+  let price1 = add_form["price"];
+  let invoiceDate1 = new Date(newee.dataset.value);
+  let due1 = payTerms.dataset.value;
+  let paymentDue1 = new Date(
+    invoiceDate1.getTime() + due1 * 24 * 60 * 60 * 1000
+  );
+
+  let kit = [];
+  if (itemName1.length) {
+    for (let i = 0; i < itemName1.length; i++) {
+      let item = {
+        name: itemName1[i].value,
+        quantity: Number(quantity1[i].value),
+        price: Number(price1[i].value),
+        total: Number(tot[i].dataset.value),
+      };
+      kit.push(item);
+    }
+  } else if (!itemName1.length) {
+    let item1 = {
+      name: itemName1.value,
+      quantity: Number(quantity1.value),
+      price: Number(price1.value),
+      total: Number(tot.value),
+    };
+    kit.push(item1);
+  }
+
+  let accumilate = 0;
+
+  console.log(kit);
+
+  for (let i = 0; i < kit.length; i++) {
+    accumilate = accumilate + Number(kit[i].total);
+  }
+
+  let obj = {
+    id: addNewInvoice(),
+    createdAt: FormatDate(invoiceDate1),
+    paymentDue: FormatDate(paymentDue1),
+    description: projectDescription1,
+    paymentTerms: Number(due1),
+    clientName: toClientName1,
+    clientEmail: toClientEmail1,
+    status: "pending",
+    senderAddress: {
+      street: fromStreetAddress1,
+      city: fromCity1,
+      postCode: fromPostCode1,
+      country: fromCountry1,
+    },
+    clientAddress: {
+      street: toStreetAddress1,
+      city: toCity1,
+      postCode: toPostCode1,
+      country: toCountry1,
+    },
+    items: kit,
+    total: accumilate,
+  };
+
+  console.log(obj);
+
+  const POST_OPTIONS = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  };
+
+  fetch("http://localhost:3000", POST_OPTIONS).then((res) => {
+    console.log(res);
+    localStorage.removeItem("jsonData");
+  });
 });
 
 let total = document.querySelector(".total");
@@ -134,3 +262,17 @@ function formValidate() {
   }
   return returnValue;
 }
+
+const FormatDate = (date) => {
+  let dateFormatted;
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  let strmon = month / 10 < 1 ? "0" + month : String(month);
+  let strdat = day / 10 < 1 ? "0" + day : String(day);
+
+  dateFormatted = `${year}-${strmon}-${strdat}`;
+
+  return dateFormatted;
+};
