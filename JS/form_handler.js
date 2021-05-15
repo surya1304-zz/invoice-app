@@ -5,11 +5,6 @@ let payTerms = document.querySelector(".selected-item");
 let draft = document.querySelector("#draft");
 let saveandsend = document.querySelector("#saveandsend");
 
-draft.addEventListener("click", (e) => {
-  e.preventDefault();
-  formValidate();
-});
-
 function GenerateId() {
   var randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var result = "";
@@ -48,6 +43,7 @@ const addNewInvoice = () => {
 
 saveandsend.addEventListener("click", (e) => {
   e.preventDefault();
+  formValidate();
 
   let tot = document.querySelectorAll(".total");
   console.log(tot);
@@ -142,8 +138,9 @@ saveandsend.addEventListener("click", (e) => {
 draft.addEventListener("click", (e) => {
   e.preventDefault();
 
+  formValidate();
+
   let tot = document.querySelectorAll(".total");
-  console.log(tot);
 
   let fromStreetAddress1 = add_form["fromStreetAddress"].value;
   let fromCity1 = add_form["fromCity"].value;
@@ -252,31 +249,6 @@ function formValidate() {
   let price = add_form["price"];
   let invoiceDate = new Date(newee.dataset.value);
   let due = payTerms.dataset.value;
-  let paymentDue = new Date(invoiceDate.getTime() + due * 24 * 60 * 60 * 1000);
-
-  console.log(fromStreetAddress);
-  console.log(fromCity);
-  console.log(fromPostCode);
-  console.log(fromCountry);
-  console.log(toClientName);
-  console.log(toClientEmail);
-  console.log(toStreetAddress);
-  console.log(toCity);
-  console.log(toPostCode);
-  console.log(toCountry);
-  console.log(projectDescription);
-  console.log(price);
-
-  console.log(invoiceDate);
-  console.log(due);
-  console.log(paymentDue);
-
-  if (!itemName.length) {
-    console.log(`${itemName.value} ${quantity.value} ${price.value}`);
-  } else if (itemName.length) {
-    for (let i = 0; i < itemName.length; i++)
-      `${itemName[i].value} ${quantity[i].value} ${price[i].value}`;
-  }
 
   let returnValue = true;
 

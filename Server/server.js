@@ -6,11 +6,6 @@ const express = require("express");
 
 const app = express();
 
-// const corsOptions = {
-//   origin: "http://localhost:3000",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
-
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -146,8 +141,6 @@ app.post("/", (req, res) => {
     total,
   } = req.body;
 
-  console.log(req.body);
-
   invoices
     .insertMany({
       id: id,
@@ -164,6 +157,37 @@ app.post("/", (req, res) => {
       total: total,
     })
     .then((resp) => res.send(resp))
+    .catch((err) => res.send(err));
+});
+
+app.get("/:filter", (req, res) => {
+  let filter = req.params.filter;
+  let query = {
+    status: {
+      $in: [],
+    },
+  };
+
+  let queries = filter.split("&");
+  console.log(queries);
+
+  if (queries.length > 1) {
+    for (let i = 0; i < queries.length; i++) {
+      query.status.$in.push(queries[i]);
+    }
+    console.log(query);
+  } else {
+    query.status.$in.push(filter);
+  }
+
+  console.log(filter);
+
+  invoices
+    .find(query)
+    .then((resp) => {
+      res.send(resp);
+      console.log(resp);
+    })
     .catch((err) => res.send(err));
 });
 
