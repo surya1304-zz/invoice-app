@@ -1,209 +1,206 @@
 .invoices {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  width: 50rem;
-
-  .link {
-    display: inline-flex;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    text-decoration: none;
-    color: black;
-    font-weight: 700;
-    font-size: 1rem;
-
-    &:visited {
-      color: black;
-    }
-
-    &::before {
-      content: url("../../starter-code/assets/icon-arrow-left.svg");
-      margin-right: 2rem;
-    }
-  }
-
-  &__body {
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
     width: 50rem;
-    padding: 3rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
 
-    .clientDetails {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: 4.16rem;
+    .link {
+        display: inline-flex;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        text-decoration: none;
+        color: black;
+        font-weight: 700;
+        font-size: 1rem;
 
-      .date_due {
+        &:visited {
+            color: black;
+        }
+
+        &::before {
+            content: url("../../starter-code/assets/icon-arrow-left.svg");
+            margin-right: 2rem;
+        }
+    }
+
+    &__body {
+        margin-top: 2rem;
+        width: 50rem;
+        padding: 3rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+
+        .clientDetails {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 4.16rem;
+
+            .date_due {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__header {
+        padding: 2rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
-      }
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+
+        .status {
+            margin-left: 1rem;
+        }
     }
-  }
 
-  &__header {
-    padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+    &__id {
+        font-size: 1.4rem;
+        font-weight: 700;
 
-    .status {
-      margin-left: 1rem;
+        &::before {
+            content: "#";
+            font-weight: 500;
+            color: var(--color-7);
+        }
     }
-  }
 
-  &__id {
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    &::before {
-      content: "#";
-      font-weight: 500;
-      color: var(--color-7);
+    &__des {
+        font-size: 1rem;
+        margin-top: 1rem;
+        color: var(--color-7);
     }
-  }
 
-  &__des {
-    font-size: 1rem;
-    margin-top: 1rem;
-    color: var(--color-7);
-  }
+    &__content {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
 
-  &__content {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
+        .fromAddress {
+            text-align: end;
+            color: var(--color-7);
 
-    .fromAddress {
-      text-align: end;
-      color: var(--color-7);
-
-      & > p {
-        line-height: 2;
-      }
+            & > p {
+                line-height: 2;
+            }
+        }
     }
-  }
 }
 
 .heading {
-  font-size: 1rem;
-  color: var(--color-7);
-  margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--color-7);
+    margin-bottom: 1rem;
 }
 
 .inline_heading {
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  font-size: 1rem;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
 }
 
 .bold-text {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .toAddress p:not(.bold-text, .heading) {
-  color: var(--color-7);
-  line-height: 2;
+    color: var(--color-7);
+    line-height: 2;
 }
 
 .invoicesItemsList {
-  padding: 2rem;
-  border-radius: 10px 10px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: rgb(249, 250, 254);
+    padding: 2rem;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgb(249, 250, 254);
 
-  .lt {
-    display: grid;
-    grid-template-columns: 3fr 1fr 2fr 2fr;
-  }
+    .lt {
+        display: grid;
+        grid-template-columns: 3fr 1fr 2fr 2fr;
+    }
 
-  .Right {
-    place-self: end;
-  }
+    .Right {
+        place-self: end;
+    }
 
-  .Center {
-    place-self: center;
-  }
+    .Center {
+        place-self: center;
+    }
 }
 
 .ListItem {
-  font-weight: 700;
-  font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
 
-  &.Dark {
-  }
-
-  &.Light {
-    color: var(--color-7);
-  }
+    &.Light {
+        color: var(--color-7);
+    }
 }
 
 .listTotal {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  color: white;
-  background-color: #373b53;
-  border-radius: 0 0 10px 10px;
-  .Amount {
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-  }
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    color: white;
+    background-color: #373b53;
+    border-radius: 0 0 10px 10px;
+    .Amount {
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+    }
 
-  .TA {
-    font-weight: 700;
-    font-size: 2rem;
-  }
+    .TA {
+        font-weight: 700;
+        font-size: 2rem;
+    }
 }
 
 .conat {
-  margin: 0 auto;
-  width: 40rem;
-  height: 20rem;
-  position: fixed;
-  z-index: 3;
-  top: 30%;
-  left: 38%;
-  background: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  display: none;
+    margin: 0 auto;
+    width: 40rem;
+    height: 20rem;
+    position: fixed;
+    z-index: 3;
+    top: 30%;
+    left: 38%;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
 
-  &.show {
-    display: block;
-  }
+    &.show {
+        display: block;
+    }
 }
 
 .deletepopup {
-  height: 100%;
-  text-align: left;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  h1 {
-    margin: 1rem;
-  }
-  p {
-    font-size: 1rem;
-    margin: 1rem;
-  }
-
-  .popupButtons {
+    height: 100%;
+    text-align: left;
+    padding: 2rem;
     display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-  }
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1 {
+        margin: 1rem;
+    }
+    p {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+
+    .popupButtons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
 }
