@@ -452,6 +452,14 @@ ul {
       align-self: center;
 }
 
+.status.big {
+  position: relative;
+  top: -0.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 8rem;
+}
+
 .status::before {
   content: "\f111";
   font-size: 0.5rem;
@@ -473,18 +481,18 @@ ul {
 }
 
 .status.paid {
-  background: #f3fdfa;
   color: #33d69f;
+  background-color: rgba(51, 214, 159, 0.05);
 }
 
 .status.pending {
-  background: #fff9f0;
   color: #ff8f00;
+  background-color: rgba(255, 143, 0, 0.05);
 }
 
 .status.draft {
-  background: #f4f4f5;
   color: #373b53;
+  background-color: rgba(55, 59, 83, 0.05);
 }
 
 .arrow {
@@ -511,6 +519,7 @@ ul {
   padding-left: 10rem;
   width: 500px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .side_invoice .new__invoice {
@@ -604,7 +613,7 @@ ul {
   background-color: var(--color-2);
 }
 
-#overlay {
+.overlay {
   position: fixed;
   display: none;
   width: 100%;
@@ -967,6 +976,15 @@ button {
   background-color: var(--color-8);
 }
 
+.button4.delete {
+  background-color: var(--color-9);
+  color: var(--color--white);
+}
+
+.button4.delete:hover {
+  background-color: var(--color-10);
+}
+
 .button5 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1037,5 +1055,276 @@ button {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+.invoices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  width: 50rem;
+}
+
+.invoices .link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.invoices .link:visited {
+  color: black;
+}
+
+.invoices .link::before {
+  content: url("../../starter-code/assets/icon-arrow-left.svg");
+  margin-right: 2rem;
+}
+
+.invoices__body {
+  margin-top: 2rem;
+  width: 50rem;
+  padding: 3rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.invoices__body .clientDetails {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 4.16rem;
+}
+
+.invoices__body .clientDetails .date_due {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.invoices__header {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.invoices__header .status {
+  margin-left: 1rem;
+}
+
+.invoices__id {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.invoices__id::before {
+  content: "#";
+  font-weight: 500;
+  color: var(--color-7);
+}
+
+.invoices__des {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: var(--color-7);
+}
+
+.invoices__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.invoices__content .fromAddress {
+  text-align: end;
+  color: var(--color-7);
+}
+
+.invoices__content .fromAddress > p {
+  line-height: 2;
+}
+
+.heading {
+  font-size: 1rem;
+  color: var(--color-7);
+  margin-bottom: 1rem;
+}
+
+.inline_heading {
+  height: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+}
+
+.bold-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.toAddress p:not(.bold-text, .heading) {
+  color: var(--color-7);
+  line-height: 2;
+}
+
+.invoicesItemsList {
+  padding: 2rem;
+  border-radius: 10px 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  background-color: #f9fafe;
+}
+
+.invoicesItemsList .lt {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr 2fr 2fr;
+      grid-template-columns: 3fr 1fr 2fr 2fr;
+}
+
+.invoicesItemsList .Right {
+  place-self: end;
+}
+
+.invoicesItemsList .Center {
+  place-self: center;
+}
+
+.ListItem {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.ListItem.Light {
+  color: var(--color-7);
+}
+
+.listTotal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem;
+  color: white;
+  background-color: #373b53;
+  border-radius: 0 0 10px 10px;
+}
+
+.listTotal .Amount {
+  font-size: 1rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.listTotal .TA {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.conat {
+  margin: 0 auto;
+  width: 40rem;
+  height: 20rem;
+  position: fixed;
+  z-index: 3;
+  top: 30%;
+  left: 38%;
+  background: white;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: none;
+}
+
+.conat.show {
+  display: block;
+}
+
+.deletepopup {
+  height: 100%;
+  text-align: left;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.deletepopup h1 {
+  margin: 1rem;
+}
+
+.deletepopup p {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.deletepopup .popupButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

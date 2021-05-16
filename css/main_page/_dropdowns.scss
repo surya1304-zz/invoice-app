@@ -258,6 +258,14 @@ button {
   &:hover {
     background-color: var(--color-8);
   }
+
+  &.delete {
+    background-color: var(--color-9);
+    color: var(--color--white);
+    &:hover {
+      background-color: var(--color-10);
+    }
+  }
 }
 
 .button5 {

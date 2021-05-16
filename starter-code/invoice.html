@@ -1,107 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>Frontend Mentor | Invoice app</title>
-</head>
+    <link rel="stylesheet" href="../css/style.css" />
 
-<body>
-  Go back
+    <title>Frontend Mentor | Invoice app</title>
+  </head>
 
-  Status <!-- Add status -->
+  <body>
+    <div class="overlay"></div>
+    <sidebar>
+      <div class="side_bar">
+        <div class="top">
+          <div class="figure"></div>
+        </div>
+        <div class="bottom">
+          <button class="theme">
+            <img src="./assets/icon-moon.svg" alt="" srcset="" />
+          </button>
+          <img class="avatar" src="./assets/image-avatar.jpg" alt="" />
+        </div>
+      </div>
+    </sidebar>
 
-  Edit
-  Delete
-  Mark as Paid
+    <div class="invoices">
+      <a class="link" href="./js_components.html">Go Back</a>
+      <div class="invoices__header">
+        <div class="invoices__status">
+          <p class="inline_heading">Status</p>
+          <p id="status" class="big status pending">pending</p>
+        </div>
+        <div class="invoices__modifiers">
+          <button id="edit" class="button3">Edit</button>
+          <button id="delete" class="delete button4">Delete</button>
+          <button id="markAsPaid" class="button2">Mark As Paid</button>
+        </div>
+      </div>
+      <div class="invoices__body">
+        <div class="invoices__content">
+          <div class="invoices__id-desc">
+            <p class="invoices__id">AB123</p>
+            <p class="invoices__des">Hello World</p>
+          </div>
+          <div class="fromAddress">
+            <p class="fromStreetAddress">123</p>
+            <p class="fromCity">1234</p>
+            <p class="fromPostCode">12345</p>
+            <p class="fromCountry">123456</p>
+          </div>
+        </div>
+        <div class="clientDetails">
+          <div class="date_due">
+            <div class="clientDate">
+              <p class="heading">Invoice Date</p>
+              <p id="invoices__date" class="bold-text">15 May 2021</p>
+            </div>
+            <div class="clientDue">
+              <p class="heading">Payment Due</p>
+              <p id="invoices__due" class="bold-text">21 May 2021</p>
+            </div>
+          </div>
+          <div class="toAddress">
+            <p class="heading">Bill to</p>
+            <p id="clientName" class="bold-text">Surya Sai</p>
+            <p class="toStreetAddress">123</p>
+            <p class="toCity">1234</p>
+            <p class="toPostCode">12345</p>
+            <p class="toCountry">123456</p>
+          </div>
+          <div class="clientEmail">
+            <p class="heading">Sent to</p>
+            <p id="client__email" class="bold-text">suryasai678@gmail.com</p>
+          </div>
+        </div>
+        <div class="InvoiceDue">
+          <div class="invoicesItemsList">
+            <div class="lt">
+              <p class="heading">Item Name</p>
+              <p class="Center heading">QTY.</p>
+              <p class="Right heading">Price</p>
+              <p class="Right heading">Total</p>
+            </div>
+          </div>
+          <div class="listTotal">
+            <p class="Amount">Amount Due</p>
+            <p class="TA">£ 156</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  #<!-- Add id -->
-  <!-- Add description -->
+    <div class="conat">
+      <div class="deletepopup">
+        <h1>Confirm Deletion</h1>
+        <p id="deleteid"></p>
+        <div class="popupButtons">
+          <button id="finalCancel" class="button3">Cancel</button>
+          <button id="finalDelete" class="button4 delete">Delete</button>
+        </div>
+      </div>
+    </div>
+    <script src="../JS/invoice_fetch.js"></script>
+    <script>
+      let deleteId = document.getElementById("deleteid");
+      deleteId.innerHTML = `Are you sure you want to delete invoice #${sub}? This action cannot be undone.`;
+      let deleteButton = document.getElementById("delete");
+      let overlay = document.querySelector(".overlay");
+      let deletePopup = document.querySelector(".conat");
+      console.log(deletePopup);
+      let finalCancel = document.querySelector("#finalCancel");
 
-  <!-- Add senderAdress -->
+      deleteButton.addEventListener("click", (e) => {
+        overlay.style.display = "block";
+        deletePopup.classList.add("show");
+      });
 
-  Invoice Date
-  <!-- Add createdAt -->
-
-  Payment Due
-  <!-- Add paymentDue -->
-
-  Bill To
-  <!-- Add clientName -->
-  <!-- Add clientAdress -->
-
-  Sent To
-  <!-- Add clientEmail -->
-
-  Item Name
-  QTY.
-  Price
-  Total
-
-  <!-- Add item.name -->
-  <!-- Add item.quanity -->
-  <!-- Add item.price -->
-  <!-- Add item.total -->
-
-  Amount Due
-  £ <!-- Add total -->
-
-  <!-- Edit invoice form -->
-  Go back
-
-  Edit #<!-- Add id -->
-
-  Bill From
-  
-  Street Address
-  City
-  Post Code
-  Country
-  
-  Bill To
-  
-  Client's Name
-  Client's Email
-  Street Address
-  City
-  Post Code
-  Country
-  
-  Invoice Date
-  
-  Payment Terms
-  Net 1 day
-  Net 7 days
-  Net 14 days
-  Net 30 days
-  
-  Project Description
-  
-  Item List
-  
-  Item Name
-  Qty.
-  Price
-  Total
-  
-  Add New Item
-
-  Cancel
-  Save Changes
-  <!-- Edit invoice end -->
-
-  <!-- Delete Modal -->
-  Confirm Deletion
-  Are you sure you want to delete invoice #<!-- Add id -->? 
-  This action cannot be undone.
-
-  Cancel
-  Delete
-  <!-- Delete Modal end -->
-</body>
-
+      finalCancel.addEventListener("click", (e) => {
+        overlay.style.display = "none";
+        deletePopup.classList.remove("show");
+      });
+    </script>
+  </body>
 </html>

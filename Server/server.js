@@ -191,4 +191,15 @@ app.get("/:filter", (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.get("/id/:id", (req, res) => {
+  let id = req.params.id;
+
+  console.log(id);
+
+  invoices
+    .find({ id: id })
+    .then((resp) => res.send(resp))
+    .catch((err) => res.send(err));
+});
+
 app.listen(3000);
