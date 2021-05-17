@@ -1,312 +1,318 @@
 * {
-  font-family: "Spartan", sans-serif;
-  font-size: 0.75rem;
+    font-family: "Spartan", sans-serif;
+    font-size: 0.75rem;
 }
 
 #addItem {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .label {
-  color: var(--color-7);
+    color: var(--color-label);
 }
 
 .new {
-  &.validate > .invoice__input:invalid {
-    border: 1px solid red;
-  }
+    &.validate > .invoice__input:invalid {
+        border: 1px solid red;
+    }
 
-  &__details {
-    color: var(--color-1);
-  }
+    &__details {
+        color: var(--color-primary);
+    }
 
-  &__bill-address {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
+    &__bill-address {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 }
 
 .invoice__input {
-  font-weight: 700;
-  display: block;
-  position: relative;
-  border: 0;
-  background: 0;
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid var(--color-5);
-  border-radius: 5px;
-  font-size: 0.75rem;
+    font-weight: 700;
+    display: block;
+    position: relative;
+    border: 0;
+    background: var(--color-bg-textfield);
+    color: var(--color-text-textfield);
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-outline);
+    border-radius: 5px;
+    font-size: 0.75rem;
 
-  &:active,
-  &:focus {
-    border: 1px solid var(--color-1);
-  }
+    &:active,
+    &:focus {
+        border: 1px solid var(--color-outline-active);
+    }
 }
 
 .new__date {
-  position: relative;
-  .issue-date {
-    cursor: pointer;
-    font-weight: 700;
-    border-radius: 5px;
-    border: 1px solid var(--color-5);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &.active {
-      border: 1px solid var(--color-1);
-    }
-  }
-
-  .dates {
-    margin-top: 1rem;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    background: white;
-    display: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    .month {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-
-      .mth {
-        font-weight: 700;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .arrows {
-        margin: 0.6rem;
-        padding: 0.4rem;
-        width: 10%;
-        display: inline-flex;
-        justify-content: center;
-
-        &:hover {
-          background: #ccc;
-        }
-      }
-    }
-    .days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-
-      .day {
+    position: relative;
+    .issue-date {
         cursor: pointer;
-        padding: 5px;
         font-weight: 700;
-        justify-self: center;
+        border-radius: 5px;
+        border: 1px solid var(--color-outline);
+        color: var(--color-main-heading);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &.selected {
-          color: var(--color-1);
+        &.active {
+            border: 1px solid var(--color-outline-active);
         }
-
-        &.inactive {
-          color: grey;
-        }
-      }
     }
 
-    &.active {
-      display: block;
-      animation: animate 500ms ease-in-out forwards;
+    .dates {
+        margin-top: 1rem;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        background: var(--color-bg-textfield);
+        display: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        .month {
+            display: flex;
+            justify-content: space-between;
+
+            .mth {
+                color: var(--color-main-heading);
+                font-weight: 700;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .arrows {
+                margin: 0.6rem;
+                padding: 0.4rem;
+                width: 10%;
+                display: inline-flex;
+                justify-content: center;
+
+                &:hover {
+                    background: #ccc;
+                }
+            }
+        }
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: var(--color-dropdown);
+            color: var(--color-main-heading);
+
+            .day {
+                cursor: pointer;
+                padding: 5px;
+                font-weight: 700;
+                justify-self: center;
+
+                &.selected {
+                    color: var(--color-primary);
+                }
+
+                &.inactive {
+                    color: grey;
+                }
+            }
+        }
+
+        &.active {
+            display: block;
+            animation: animate 500ms ease-in-out forwards;
+        }
     }
-  }
 }
 
 .new__payment-dropdown {
-  height: 100%;
-  cursor: pointer;
-  position: relative;
-  .selected-item {
-    display: flex;
-    font-weight: 700;
-    justify-content: space-between;
-    padding: 1.2rem;
-    border: 1px solid var(--color-5);
-    border-radius: 5px;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    .selected-item {
+        color: var(--color-main-heading);
+        display: flex;
+        font-weight: 700;
+        justify-content: space-between;
+        padding: 1.2rem;
+        border: 1px solid var(--color-outline);
+        border-radius: 5px;
 
-    &::after {
-      content: url("../starter-code/assets/icon-arrow-down.svg");
+        &::after {
+            content: url("../starter-code/assets/icon-arrow-down.svg");
+        }
+
+        &.active {
+            border: 1px solid var(--color-outline-active);
+        }
     }
 
-    &.active {
-      border: 1px solid var(--color-1);
+    #dropdown {
+        background: var(--color-dropdown);
+        position: absolute;
+        z-index: 1;
+        top: 7.2rem;
+        left: 0;
+        right: 0;
+        border: 1px solid var(--color-primary);
+        border-radius: 5px;
+        display: none;
+
+        li {
+            color: var(--color-dropdown-text);
+            font-weight: 700;
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-dropdown-border);
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &.selected {
+                color: var(--color-primary);
+            }
+        }
+
+        &.show {
+            display: block;
+            animation: animate 500ms ease-in-out forwards;
+        }
     }
-  }
-
-  #dropdown {
-    background: white;
-    position: absolute;
-    z-index: 1;
-    top: 7.2rem;
-    left: 0;
-    right: 0;
-    border: 1px solid var(--color-5);
-    border-radius: 5px;
-    display: none;
-
-    li {
-      font-weight: 700;
-      padding: 1rem;
-      border-bottom: 1px solid var(--color-5);
-      &:last-child {
-        border-bottom: 0;
-      }
-
-      &.selected {
-        color: var(--color-1);
-      }
-    }
-
-    &.show {
-      display: block;
-      animation: animate 500ms ease-in-out forwards;
-    }
-  }
 }
 
 .new__date-payment {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 .invoice__items {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
+    gap: 1rem;
 }
 
 .delete-icon {
-  cursor: pointer;
-  place-self: center;
+    cursor: pointer;
+    place-self: center;
 
-  &::after {
-    content: url("../../starter-code/assets/icon-delete.svg");
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
+    &::after {
+        content: url("../../starter-code/assets/icon-delete.svg");
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-  &:hover {
-    background: #eee;
-  }
+    &:hover {
+        background: #eee;
+    }
 }
 
 button {
-  border: 0;
+    border: 0;
 }
 
 .button2 {
-  background-color: var(--color-1);
-  color: white;
-  border-radius: 2rem;
-  padding: 1rem 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
 
-  &:hover {
-    background-color: var(--color-2);
-  }
+    &:hover {
+        background-color: var(--color-secondary);
+    }
 }
 
 .button3 {
-  border-radius: 2rem;
-  padding: 1rem 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
-  background-color: var(--color-11);
-  color: var(--color-7);
-  &:hover {
-    background-color: var(--color-5);
-  }
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: var(--color-button3);
+    color: var(--color-button3-text);
+    &:hover {
+        background-color: var(--color-button3-hover);
+    }
 }
 
 #saveandsend {
-  margin-left: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .button4 {
-  border-radius: 2rem;
-  padding: 1rem 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
-  background-color: var(--color-13);
-  color: var(--color-6);
-  &:hover {
-    background-color: var(--color-8);
-  }
-
-  &.delete {
-    background-color: var(--color-9);
-    color: var(--color--white);
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: var(--color-button4);
+    color: var(--color-button4-text);
     &:hover {
-      background-color: var(--color-10);
+        background-color: var(--color-button4-hover);
     }
-  }
+
+    &.delete {
+        background-color: var(--color-button5);
+        color: var(--color-button5-text);
+        &:hover {
+            background-color: var(--color-button5-hover);
+        }
+    }
 }
 
 .button5 {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-11);
-  color: var(--color-7);
-  border-radius: 2rem;
-  padding: 1rem;
-  font-weight: 500;
-  cursor: pointer;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-button6);
+    color: var(--color-button6-text);
+    border-radius: 2rem;
+    padding: 1rem;
+    font-weight: 500;
+    cursor: pointer;
 
-  & > p {
-    font-size: 0.9rem;
-  }
+    & > p {
+        font-size: 0.9rem;
+    }
 
-  &:hover {
-    background-color: var(--color-5);
-  }
+    &:hover {
+        background-color: var(--color-button6-hover);
+    }
 }
 
 .buttons {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 @keyframes animate {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 
-  25% {
-    opacity: 0;
-    transform: translateY(-75%);
-  }
+    25% {
+        opacity: 0;
+        transform: translateY(-75%);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

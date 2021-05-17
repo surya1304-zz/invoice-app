@@ -1,20 +1,102 @@
 :root {
-  /* Colors */
-  --color-1: hsl(252, 94%, 67%);
-  --color-2: hsl(252, 100%, 73%);
-  --color-3: hsl(233, 31%, 17%);
-  --color-4: hsl(233, 30%, 21%);
-
-  --color-5: hsl(231, 73%, 93%);
-  --color-6: hsl(231, 20%, 61%);
-  --color-7: hsl(231, 37%, 63%);
-  --color-8: hsl(228, 29%, 7%);
-  --color-13: hsl(231, 20%, 27%);
-
-  --color-9: hsl(0, 80%, 63%);
-  --color-10: hsl(0, 100%, 80%);
-
-  --color-11: hsl(240, 27%, 98%);
-  --color-12: hsl(233, 30%, 11%);
-  --color--white: hsl(0, 100%, 100%);
+    /* Colors */
+    --color-primary: rgb(124, 93, 250);
+    --color-secondary: rgb(146, 119, 255);
+    --color-paid: rgb(51, 214, 159);
+    --color-pending: rgb(255, 143, 0);
+    --color-button5: rgb(236, 87, 87);
+    --color-button5-text: rgb(255, 255, 255);
+    --color-button5-hover: rgb(255, 151, 151);
+    --color-button6: rgb(249, 250, 254);
+    --color-button6-text: rgb(126, 136, 195);
+    --color-button6-hover: rgb(223, 227, 250);
+    --color-hashtag: rgb(126, 136, 195);
 }
+
+.theme-light {
+    /* Colors Light */
+    --color-sidebar: rgb(55, 59, 83);
+    --color-page-bg: rgb(248, 248, 251);
+    --color-card-bg: rgb(255, 255, 255);
+    --color-main-heading: rgb(12, 14, 22);
+    --color-text: rgb(136, 142, 176);
+    --color-name: var(--color-text);
+    --color-draft: var(--color-sidebar);
+    --color-draft-bg: rgba(55, 59, 83, 0.05);
+    --color-button3: rgb(249, 250, 254);
+    --color-button3-hover: rgb(223, 227, 250);
+    --color-button3-text: var(--color-hashtag);
+    --color-button4: var(--color-sidebar);
+    --color-button4-text: var(--color-text);
+    --color-button4-hover: var(--color-main-heading);
+    --color-bg-textfield: white;
+    --color-outline: var(--color-button3-hover);
+    --color-outline-disabled: rgb(239, 241, 252);
+    --color-label: var(--color-hashtag);
+    --color-label-disabled: rgb(191, 195, 255);
+    --color-text-textfield: var(--color-main-heading);
+    --color-text-disabled: rgb(133, 135, 139);
+    --color-caratcolor-textfield: var(--color-primary);
+    --color-outline-active: var(--color-primary);
+    --color-dropdown: white;
+    --color-dropdown-text: var(--color-main-heading);
+    --color-dropdown-border: var(--color-outline);
+    --color-item-selected: var(--color-primary);
+    --color-invoiceitems-bg: var(--color-button3);
+    --color-invoice-bar: var(--color-sidebar);
+    --color-invoice-bar-text: white;
+    --color-itemlist-text: rgb(119, 127, 152);
+}
+
+.theme-dark {
+    /* Dark Colors */
+    --color-sidebar: rgb(30, 33, 57);
+    --color-page-bg: rgb(20, 22, 37);
+    --color-card-bg: var(--color-sidebar);
+    --color-main-heading: rgb(255, 255, 255);
+    --color-text: rgb(223, 227, 250);
+    --color-name: var(--color-main-heading);
+    --color-draft: var(--color-text);
+    --color-draft-bg: rgba(223, 227, 250, 0.05);
+    --color-button3: rgb(37, 41, 69);
+    --color-button3-hover: var(--color-main-heading);
+    --color-button3-text: var(--color-text);
+    --color-button4: rgb(55, 59, 83);
+    --color-button4-text: var(--color-text);
+    --color-button4-hover: var(--color-sidebar);
+    --color-bg-textfield: var(--color-sidebar);
+    --color-outline: var(--color-button3);
+    --color-outline-disabled: rgb(28, 31, 53);
+    --color-label: rgb(223, 227, 250);
+    --color-label-disabled: rgb(121, 124, 143);
+    --color-text-textfield: var(--color-main-heading);
+    --color-text-disabled: rgb(137, 138, 146);
+    --color-caratcolor-textfield: var(--color-primary);
+    --color-outline-active: var(--color-outline);
+    --color-dropdown: rgb(37, 41, 69);
+    --color-dropdown-text: var(--color-text);
+    --color-dropdown-border: var(--color-sidebar);
+    --color-item-selected: var(--color-primary);
+    --color-invoiceitems-bg: var(--color-button3);
+    --color-invoice-bar: rgb(12, 14, 22);
+    --color-invoice-bar-text: white;
+    --color-itemlist-text: white;
+}
+
+// --color-1: hsl(252, 94%, 67%);
+// --color-2: hsl(252, 100%, 73%);
+// --color-3: hsl(233, 31%, 17%);
+// --color-4: hsl(233, 30%, 21%);
+// :root {
+//     --color-5: hsl(231, 73%, 93%);
+// }
+
+// --color-6: hsl(231, 20%, 61%);
+// --color-7: hsl(231, 37%, 63%);
+// --color-8: hsl(228, 29%, 7%);
+// --color-13: hsl(231, 20%, 27%);
+// --color-9: hsl(0, 80%, 63%);
+// --color-10: hsl(0, 100%, 80%);
+// --color-11: hsl(240, 27%, 98%);
+// --color-12: hsl(233, 30%, 11%);
+// --color--white: hsl(0, 100%, 100%);

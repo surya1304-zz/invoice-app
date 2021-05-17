@@ -1,270 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="overlay"></div>
-    <div class="tot">
-      <div class="side_invoice">
-        <form class="new" method="POST" onsubmit="return formValidate()">
-          <h1 class="new__invoice">New Invoice</h1>
-          <h5 class="new__details">Bill From</h5>
-          <div class="new__bill-from">
-            <label for="fromStreetAddress" class="label">Street Address</label>
-            <input required name="fromStreetAddress" class="invoice__input" type="text" id="fromStreetAddress" />
-            <div class="new__bill-address">
-              <div class="city">
-                <label for="fromCity" class="label">City</label>
-                <input required name="fromCity" class="invoice__input" type="text" id="fromCity" />
-              </div>
-              <div class="postCode">
-                <label for="fromPostCode" class="label">Post Code</label>
-                <input required name="fromPostCode" class="invoice__input" type="text" id="fromPostCode" />
-              </div>
-              <div class="country">
-                <label for="fromCountry" class="label">Country</label>
-                <input required name="fromCountry" class="invoice__input" type="text" id="fromCountry" />
-              </div>
-            </div>
-          </div>
-          <h5 class="new__details">Bill To</h5>
-          <div class="new__bill-to">
-            <label for="toClientName" class="label">Client's name</label>
-            <input required name="toClientName" class="invoice__input" type="text" id="toClientName" />
-            <label for="toClientEmail" class="label">Client's Email</label>
-            <input
-            required
-              name="toClientEmail"
-              class="invoice__input"
-              type="email"
-              id="toClientEmail"
-              placeholder="e.g. email@example.com"
-            />
-            <label for="toStreetAddress" class="label">Street Address</label>
-            <input required name="toStreetAddress" type="text" id="toStreetAddress" class="invoice__input" />
-            <div class="new__bill-address">
-              <div class="city">
-                <label for="toCity" class="label">City</label>
-                <input required name="toCity" type="text" class="invoice__input" id="toCity" />
-              </div>
-              <div class="postCode">
-                <label for="toPostCode" class="label">Post Code</label>
-                <input required name="toPostCode" type="text" class="invoice__input" id="toPostCode" />
-              </div>
-              <div class="country">
-                <label for="toCountry" class="label">Country</label>
-                <input required name="toCountry" type="text" class="invoice__input" id="toCountry" />
-              </div>
-            </div>
-          </div>
-          <div class="new__date-payment">
-            <div class="new__date">
-              <label for="invoiceDate" class="label">Invoice Date</label>
-              <div class="date-picker">
-                <div class="issue-date">
-                  <div class="selected-date"></div>
-                  <img src="./assets/icon-calendar.svg" alt="" />
-                </div>
-                <div class="dates">
-                  <div class="month">
-                    <div class="arrows prev-mth">
-                      <img
-                        src="../starter-code/assets/icon-arrow-left.svg"
-                        alt=""
-                      />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="overlay"></div>
+        <div class="tot">
+            <div class="side_invoice">
+                <form
+                    class="new"
+                    method="POST"
+                    onsubmit="return formValidate()"
+                >
+                    <h1 class="new__invoice">New Invoice</h1>
+                    <h5 class="new__details">Bill From</h5>
+                    <div class="new__bill-from">
+                        <label for="fromStreetAddress" class="label"
+                            >Street Address</label
+                        >
+                        <input
+                            required
+                            name="fromStreetAddress"
+                            class="invoice__input"
+                            type="text"
+                            id="fromStreetAddress"
+                        />
+                        <div class="new__bill-address">
+                            <div class="city">
+                                <label for="fromCity" class="label">City</label>
+                                <input
+                                    required
+                                    name="fromCity"
+                                    class="invoice__input"
+                                    type="text"
+                                    id="fromCity"
+                                />
+                            </div>
+                            <div class="postCode">
+                                <label for="fromPostCode" class="label"
+                                    >Post Code</label
+                                >
+                                <input
+                                    required
+                                    name="fromPostCode"
+                                    class="invoice__input"
+                                    type="text"
+                                    id="fromPostCode"
+                                />
+                            </div>
+                            <div class="country">
+                                <label for="fromCountry" class="label"
+                                    >Country</label
+                                >
+                                <input
+                                    required
+                                    name="fromCountry"
+                                    class="invoice__input"
+                                    type="text"
+                                    id="fromCountry"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div class="mth"></div>
-                    <div class="arrows next-mth">
-                      <img
-                        src="../starter-code/assets/icon-arrow-right.svg"
-                        alt=""
-                      />
+                    <h5 class="new__details">Bill To</h5>
+                    <div class="new__bill-to">
+                        <label for="toClientName" class="label"
+                            >Client's name</label
+                        >
+                        <input
+                            required
+                            name="toClientName"
+                            class="invoice__input"
+                            type="text"
+                            id="toClientName"
+                        />
+                        <label for="toClientEmail" class="label"
+                            >Client's Email</label
+                        >
+                        <input
+                            required
+                            name="toClientEmail"
+                            class="invoice__input"
+                            type="email"
+                            id="toClientEmail"
+                            placeholder="e.g. email@example.com"
+                        />
+                        <label for="toStreetAddress" class="label"
+                            >Street Address</label
+                        >
+                        <input
+                            required
+                            name="toStreetAddress"
+                            type="text"
+                            id="toStreetAddress"
+                            class="invoice__input"
+                        />
+                        <div class="new__bill-address">
+                            <div class="city">
+                                <label for="toCity" class="label">City</label>
+                                <input
+                                    required
+                                    name="toCity"
+                                    type="text"
+                                    class="invoice__input"
+                                    id="toCity"
+                                />
+                            </div>
+                            <div class="postCode">
+                                <label for="toPostCode" class="label"
+                                    >Post Code</label
+                                >
+                                <input
+                                    required
+                                    name="toPostCode"
+                                    type="text"
+                                    class="invoice__input"
+                                    id="toPostCode"
+                                />
+                            </div>
+                            <div class="country">
+                                <label for="toCountry" class="label"
+                                    >Country</label
+                                >
+                                <input
+                                    required
+                                    name="toCountry"
+                                    type="text"
+                                    class="invoice__input"
+                                    id="toCountry"
+                                />
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="days"></div>
+                    <div class="new__date-payment">
+                        <div class="new__date">
+                            <label for="invoiceDate" class="label"
+                                >Invoice Date</label
+                            >
+                            <div class="date-picker">
+                                <div class="issue-date">
+                                    <div class="selected-date"></div>
+                                    <img
+                                        src="./assets/icon-calendar.svg"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="dates">
+                                    <div class="month">
+                                        <div class="arrows prev-mth">
+                                            <img
+                                                src="../starter-code/assets/icon-arrow-left.svg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="mth"></div>
+                                        <div class="arrows next-mth">
+                                            <img
+                                                src="../starter-code/assets/icon-arrow-right.svg"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="days"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new__payment-terms">
+                            <div class="new__payment-dropdown">
+                                <label for="dropdown" class="label"
+                                    >Payment Terms</label
+                                >
+                                <div data-value="30" class="selected-item">
+                                    Net 30 Days
+                                </div>
+                                <div id="dropdown">
+                                    <ul>
+                                        <li value="1">Net 1 Day</li>
+                                        <li value="7">Net 7 Days</li>
+                                        <li value="14">Net 14 Days</li>
+                                        <li value="30" class="selected">
+                                            Net 30 Days
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="projectDescription" class="label"
+                        >Project Description</label
+                    >
+                    <input
+                        required
+                        name="projectDescription"
+                        type="text"
+                        class="invoice__input"
+                        id="projectDescription"
+                        placeholder="e.g. Graphic Design Service"
+                    />
+                    <h2 class="invoice__itemList">Item List</h2>
+                    <div class="invoice__items">
+                        <div class="item">
+                            <label for="itemName" class="label"
+                                >Item Name</label
+                            >
+                            <label for="quantity" class="label">Qty.</label>
+                            <label for="price" class="label">Price</label>
+                            <label for="total" class="label">Total</label>
+                            <div></div>
+                        </div>
+                        <div class="item">
+                            <input
+                                required
+                                name="itemName"
+                                type="text"
+                                class="invoice__input"
+                            />
+                            <input
+                                onchange="Hello()"
+                                required
+                                name="quantity"
+                                type="text"
+                                class="invoice__input quantity"
+                            />
+                            <input
+                                onchange="Hello()"
+                                required
+                                name="price"
+                                type="text"
+                                class="invoice__input price"
+                            />
+                            <p class="total invoice__input"></p>
+                            <button class="delete-icon"></button>
+                        </div>
+                    </div>
+                    <button id="addItem" class="button5">+ Add New Item</button>
+                    <div class="buttons">
+                        <button id="discard" class="button3">Discard</button>
+                        <div class="invoice__save">
+                            <button id="draft" type="submit" class="button4">
+                                Save as Draft
+                            </button>
+                            <button
+                                id="saveandsend"
+                                type="submit"
+                                class="button2"
+                            >
+                                Save & Send
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <sidebar>
+                <div class="side_bar">
+                    <div class="top">
+                        <div class="figure"></div>
+                    </div>
+                    <div class="bottom">
+                        <button class="theme">
+                            <img
+                                id="theme"
+                                src="./assets/icon-moon.svg"
+                                alt=""
+                                srcset=""
+                            />
+                        </button>
+                        <img
+                            class="avatar"
+                            src="./assets/image-avatar.jpg"
+                            alt=""
+                        />
+                    </div>
                 </div>
-              </div>
+            </sidebar>
+            <div class="empty">
+                <header>
+                    <div class="header">
+                        <div class="left">
+                            <h1 class="invoice">Invoices</h1>
+                            <p class="invoice-count"></p>
+                        </div>
+                        <div class="header__right">
+                            <div class="filter_dropdown">
+                                <div class="dropdown">
+                                    <div class="dropdown__selected">
+                                        filter by status
+                                    </div>
+                                    <div id="drop_down">
+                                        <ul>
+                                            <li>
+                                                <div class="dropdown-item">
+                                                    <input
+                                                        class="regular-checkbox"
+                                                        type="checkbox"
+                                                        name="status"
+                                                        id="Draft"
+                                                        value="draft"
+                                                    />
+                                                    <label
+                                                        for="Draft"
+                                                        class="text"
+                                                        >Draft</label
+                                                    >
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-item">
+                                                    <input
+                                                        class="regular-checkbox"
+                                                        type="checkbox"
+                                                        name="status"
+                                                        id="Pending"
+                                                        value="pending"
+                                                    />
+                                                    <label
+                                                        for="Pending"
+                                                        class="text"
+                                                        >Pending</label
+                                                    >
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-item">
+                                                    <input
+                                                        class="regular-checkbox"
+                                                        type="checkbox"
+                                                        name="status"
+                                                        id="Paid"
+                                                        value="paid"
+                                                    />
+                                                    <label
+                                                        for="Paid"
+                                                        class="text"
+                                                        >Paid</label
+                                                    >
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="new_invoice_button">
+                                <button onclick="openInvoice()" class="button1">
+                                    New Invoice
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="container"></div>
             </div>
-            <div class="new__payment-terms">
-              <div class="new__payment-dropdown">
-                <label for="dropdown" class="label">Payment Terms</label>
-                <div data-value="30" class="selected-item">Net 30 Days</div>
-                <div id="dropdown">
-                  <ul>
-                    <li value="1">Net 1 Day</li>
-                    <li value="7">Net 7 Days</li>
-                    <li value="14">Net 14 Days</li>
-                    <li value="30" class="selected">Net 30 Days</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <label for="projectDescription" class="label">Project Description</label>
-          <input
-          required
-            name="projectDescription"
-            type="text"
-            class="invoice__input"
-            id="projectDescription"
-            placeholder="e.g. Graphic Design Service"
-          />
-          <h2 class="invoice__itemList">Item List</h2>
-          <div class="invoice__items">
-            <div class="item">
-              <label for="itemName" class="label">Item Name</label>
-              <label for="quantity" class="label">Qty.</label>
-              <label for="price" class="label">Price</label>
-              <label for="total" class="label">Total</label>
-              <div></div>
-            </div>
-            <div class="item">
-              <input required name="itemName" type="text" class="invoice__input" />
-              <input onchange="Hello()" required name="quantity" type="text" class="invoice__input quantity" />
-              <input onchange="Hello()" required name="price" type="text" class="invoice__input price" />
-              <p class="total invoice__input" ></p>
-              <button class="delete-icon"></button>
-            </div>
-          </div>
-          <button id="addItem" class="button5">+ Add New Item</button>
-          <div class="buttons">
-            <button id="discard" class="button3">Discard</button>
-            <div class="invoice__save">
-              <button id="draft" type="submit" class="button4">Save as Draft</button>
-              <button id="saveandsend" type="submit" class="button2">Save & Send</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <sidebar>
-        <div class="side_bar">
-          <div class="top">
-            <div class="figure"></div>
-          </div>
-          <div class="bottom">
-            <button class="theme">
-              <img src="./assets/icon-moon.svg" alt="" srcset="" />
-            </button>
-            <img class="avatar" src="./assets/image-avatar.jpg" alt="" />
-          </div>
         </div>
-      </sidebar>
-      <div class="empty">
-        <header>
-          <div class="header">
-            <div class="left">
-              <h1 class="invoice">Invoices</h1>
-              <p class="invoice-count"></p>
-            </div>
-            <div class="header__right">
-                <div class="filter_dropdown">
-                    <div class="dropdown">
-                      <div class="dropdown__selected">filter by status</div>
-                      <div id="drop_down">
-                        <ul>
-                          <li>
-                            <div class="dropdown-item">
-                              <input
-                                class="regular-checkbox"
-                                type="checkbox"
-                                name="status"
-                                id="Draft"
-                                value="draft"
-                              />
-                              <label for="Draft" class="text">Draft</p>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="dropdown-item">
-                              <input
-                                class="regular-checkbox"
-                                type="checkbox"
-                                name="status"
-                                id="Pending"
-                                value="pending"
-                              />
-                              <label for="Pending" class="text">Pending</p>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="dropdown-item">
-                              <input
-                                class="regular-checkbox"
-                                type="checkbox"
-                                name="status"
-                                id="Paid"
-                                value="paid"
-                              />
-                              <label for="Paid" class="text">Paid</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="new_invoice_button">
-                      <button onclick="openInvoice()" class="button1">New Invoice</button>
-                  </div>
-            </div>
-          </div>
-        </header>
-        <div class="container"></div>
-      </div>
-    </div>
-    <script>
-      let add_invoice = document.querySelector(".side_invoice");
-      let empty = document.querySelector(".empty");
-      let overlay = document.querySelector(".overlay");
+        <script>
+            (function () {
+                if (localStorage.getItem("check") === {}) {
+                    return;
+                } else {
+                    let checkbx = localStorage.getItem("check");
+                    let chkbx = JSON.parse(checkbx);
+                    console.log(chkbx);
+                    let ckbxs = document.querySelectorAll("#drop_down ul li");
+                    console.log(ckbxs);
 
-      const discard = document.getElementById("discard");
+                    for (let i = 0; i < 3; i++) {
+                        if (chkbx[i] == true) {
+                            ckbxs[i].children[0].children[0].checked = true;
+                            ckbxs[i].classList.add("selected");
+                        }
+                    }
+                    console.log(ckbxs);
+                }
+            })();
 
-      discard.addEventListener("click", (e) => {
-        e.preventDefault();
-        add_invoice.classList.remove("show");
-        empty.classList.remove("disabled");
-        overlay.style.display = "none";
-      })
+            let add_invoice = document.querySelector(".side_invoice");
+            let empty = document.querySelector(".empty");
+            let overlay = document.querySelector(".overlay");
 
-      const Hello = () => {
-        let quantities = document.querySelectorAll(".quantity");
-        let totals = document.querySelectorAll('.total');
-        let prices = document.querySelectorAll(".price");
-        for(let i=0;i<quantities.length;i++)
-        {
-          let yt = quantities[i].value * prices[i].value;
-          totals[i].innerHTML = yt;
-          totals[i].dataset.value = yt;
-        }
-      };
+            const discard = document.getElementById("discard");
 
-      const openInvoice = () =>{
-        add_invoice.classList.add("show");
-        empty.classList.add("disabled");
-        overlay.style.display = "block";
-      }
+            discard.addEventListener("click", (e) => {
+                e.preventDefault();
+                add_invoice.classList.remove("show");
+                empty.classList.remove("disabled");
+                overlay.style.display = "none";
+            });
 
-    </script>
-    <script src="../JS/payment_dropdown.js"></script>
-    <script src="../JS/date-picker.js"></script>
-    <script src="../JS/adding_invoice.js" type="module"></script>
-    <script src="../JS/fetch_and_fill.js" type="module"></script>
-    <script src="../JS/drop_down.js"></script>
-    <script src="../JS/form_handler.js"></script>
-  </body>
+            const Hello = () => {
+                let quantities = document.querySelectorAll(".quantity");
+                let totals = document.querySelectorAll(".total");
+                let prices = document.querySelectorAll(".price");
+                for (let i = 0; i < quantities.length; i++) {
+                    let yt = quantities[i].value * prices[i].value;
+                    totals[i].innerHTML = yt;
+                    totals[i].dataset.value = yt;
+                }
+            };
+
+            const openInvoice = () => {
+                add_invoice.classList.add("show");
+                empty.classList.add("disabled");
+                overlay.style.display = "block";
+            };
+        </script>
+        <script src="../JS/theme.js"></script>
+        <script src="../JS/payment_dropdown.js"></script>
+        <script src="../JS/date-picker.js"></script>
+        <script src="../JS/adding_invoice.js" type="module"></script>
+        <script src="../JS/fetch_and_fill.js" type="module"></script>
+        <script src="../JS/drop_down.js"></script>
+        <script src="../JS/form_handler.js"></script>
+    </body>
 </html>

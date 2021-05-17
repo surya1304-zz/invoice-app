@@ -1,19 +1,86 @@
 :root {
   /* Colors */
-  --color-1: hsl(252, 94%, 67%);
-  --color-2: hsl(252, 100%, 73%);
-  --color-3: hsl(233, 31%, 17%);
-  --color-4: hsl(233, 30%, 21%);
-  --color-5: hsl(231, 73%, 93%);
-  --color-6: hsl(231, 20%, 61%);
-  --color-7: hsl(231, 37%, 63%);
-  --color-8: hsl(228, 29%, 7%);
-  --color-13: hsl(231, 20%, 27%);
-  --color-9: hsl(0, 80%, 63%);
-  --color-10: hsl(0, 100%, 80%);
-  --color-11: hsl(240, 27%, 98%);
-  --color-12: hsl(233, 30%, 11%);
-  --color--white: hsl(0, 100%, 100%);
+  --color-primary: rgb(124, 93, 250);
+  --color-secondary: rgb(146, 119, 255);
+  --color-paid: rgb(51, 214, 159);
+  --color-pending: rgb(255, 143, 0);
+  --color-button5: rgb(236, 87, 87);
+  --color-button5-text: rgb(255, 255, 255);
+  --color-button5-hover: rgb(255, 151, 151);
+  --color-button6: rgb(249, 250, 254);
+  --color-button6-text: rgb(126, 136, 195);
+  --color-button6-hover: rgb(223, 227, 250);
+  --color-hashtag: rgb(126, 136, 195);
+}
+
+.theme-light {
+  /* Colors Light */
+  --color-sidebar: rgb(55, 59, 83);
+  --color-page-bg: rgb(248, 248, 251);
+  --color-card-bg: rgb(255, 255, 255);
+  --color-main-heading: rgb(12, 14, 22);
+  --color-text: rgb(136, 142, 176);
+  --color-name: var(--color-text);
+  --color-draft: var(--color-sidebar);
+  --color-draft-bg: rgba(55, 59, 83, 0.05);
+  --color-button3: rgb(249, 250, 254);
+  --color-button3-hover: rgb(223, 227, 250);
+  --color-button3-text: var(--color-hashtag);
+  --color-button4: var(--color-sidebar);
+  --color-button4-text: var(--color-text);
+  --color-button4-hover: var(--color-main-heading);
+  --color-bg-textfield: white;
+  --color-outline: var(--color-button3-hover);
+  --color-outline-disabled: rgb(239, 241, 252);
+  --color-label: var(--color-hashtag);
+  --color-label-disabled: rgb(191, 195, 255);
+  --color-text-textfield: var(--color-main-heading);
+  --color-text-disabled: rgb(133, 135, 139);
+  --color-caratcolor-textfield: var(--color-primary);
+  --color-outline-active: var(--color-primary);
+  --color-dropdown: white;
+  --color-dropdown-text: var(--color-main-heading);
+  --color-dropdown-border: var(--color-outline);
+  --color-item-selected: var(--color-primary);
+  --color-invoiceitems-bg: var(--color-button3);
+  --color-invoice-bar: var(--color-sidebar);
+  --color-invoice-bar-text: white;
+  --color-itemlist-text: rgb(119, 127, 152);
+}
+
+.theme-dark {
+  /* Dark Colors */
+  --color-sidebar: rgb(30, 33, 57);
+  --color-page-bg: rgb(20, 22, 37);
+  --color-card-bg: var(--color-sidebar);
+  --color-main-heading: rgb(255, 255, 255);
+  --color-text: rgb(223, 227, 250);
+  --color-name: var(--color-main-heading);
+  --color-draft: var(--color-text);
+  --color-draft-bg: rgba(223, 227, 250, 0.05);
+  --color-button3: rgb(37, 41, 69);
+  --color-button3-hover: var(--color-main-heading);
+  --color-button3-text: var(--color-text);
+  --color-button4: rgb(55, 59, 83);
+  --color-button4-text: var(--color-text);
+  --color-button4-hover: var(--color-sidebar);
+  --color-bg-textfield: var(--color-sidebar);
+  --color-outline: var(--color-button3);
+  --color-outline-disabled: rgb(28, 31, 53);
+  --color-label: rgb(223, 227, 250);
+  --color-label-disabled: rgb(121, 124, 143);
+  --color-text-textfield: var(--color-main-heading);
+  --color-text-disabled: rgb(137, 138, 146);
+  --color-caratcolor-textfield: var(--color-primary);
+  --color-outline-active: var(--color-outline);
+  --color-dropdown: rgb(37, 41, 69);
+  --color-dropdown-text: var(--color-text);
+  --color-dropdown-border: var(--color-sidebar);
+  --color-item-selected: var(--color-primary);
+  --color-invoiceitems-bg: var(--color-button3);
+  --color-invoice-bar: rgb(12, 14, 22);
+  --color-invoice-bar-text: white;
+  --color-itemlist-text: white;
 }
 
 *,
@@ -51,6 +118,10 @@ p {
   font-size: 0.75rem;
 }
 
+body {
+  background: var(--color-page-bg);
+}
+
 button {
   background: none;
   border: 0;
@@ -79,11 +150,11 @@ button {
 
 .header p {
   font-size: 0.75rem;
-  color: var(--color-6);
+  color: var(--color-text);
 }
 
 .header h1 {
-  color: var(--color-8);
+  color: var(--color-main-heading);
 }
 
 .header__right {
@@ -114,6 +185,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: var(--color-main-heading);
   font-size: 0.75rem;
   margin-top: 0.5rem;
   font-weight: 700;
@@ -131,13 +203,21 @@ ul {
   right: 1rem;
 }
 
+.dropdown__selected::after :where(#drop_down.show) {
+  content: url("../../starter-code/assets/icon-arrow-up.svg");
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 #drop_down {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 10px;
   margin-top: 0.5rem;
-  background: var(--color--white);
+  background: var(--color-dropdown);
+  color: var(--color-dropdown-text);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   -webkit-transform: scale(0);
@@ -166,8 +246,8 @@ ul {
 
 .regular-checkbox {
   -webkit-appearance: none;
-  background-color: var(--color-5);
-  border: 1px solid var(--color-5);
+  background-color: var(--color-button3-hover);
+  border: 1px solid var(--color-button3-hover);
   padding: 9px;
   border-radius: 3px;
   display: inline-block;
@@ -176,8 +256,8 @@ ul {
 }
 
 .regular-checkbox:checked {
-  background-color: var(--color-1);
-  border: 1px solid var(--color-1);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .regular-checkbox:checked:after {
@@ -211,12 +291,12 @@ ul {
 }
 
 .dropdown-item:hover > .regular-checkbox {
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-primary);
 }
 
 .side_bar {
   width: 7.25rem;
-  background: #373b53;
+  background: var(--color-sidebar);
   height: 100vh;
   border-radius: 1rem;
   position: fixed;
@@ -240,7 +320,7 @@ ul {
 .top {
   height: 6.25rem;
   width: 7.25rem;
-  background-color: var(--color-1);
+  background-color: var(--color-primary);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,7 +339,7 @@ ul {
   content: "";
   height: 4.125rem;
   width: 7.25rem;
-  background-color: var(--color-2);
+  background-color: var(--color-secondary);
   position: absolute;
   left: 1rem;
   bottom: -1rem;
@@ -269,7 +349,7 @@ ul {
 
 .figure {
   border-radius: 50%;
-  background: var(--color--white);
+  background: white;
   height: 40px;
   width: 40px;
   position: relative;
@@ -283,7 +363,7 @@ ul {
   width: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 20px solid var(--color-1);
+  border-top: 20px solid var(--color-primary);
   position: absolute;
   left: 10px;
   top: 0px;
@@ -350,11 +430,11 @@ ul {
           justify-content: center;
   margin-bottom: 2rem;
   font-size: 1rem;
-  color: var(--color-8);
+  color: var(--color-main-heading);
 }
 
 .empty .desc {
-  color: var(--color-6);
+  color: var(--color-text);
   font-size: 1rem;
   text-align: center;
 }
@@ -391,6 +471,7 @@ ul {
   gap: 1rem;
   justify-items: self-start;
   width: 50rem;
+  background: var(--color-card-bg);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -401,7 +482,7 @@ ul {
 
 .id {
   cursor: default;
-  color: #0c0e16;
+  color: var(--color-main-heading);
   font-size: 0.75rem;
 }
 
@@ -410,17 +491,19 @@ ul {
   content: "#";
   font-size: 0.75rem;
   font-weight: normal;
-  color: #7e88c3;
+  color: var(--color-hashtag);
 }
 
 .due_date {
   cursor: default;
   font-size: 0.75rem;
+  color: var(--color-text);
 }
 
 .name {
   cursor: default;
   font-size: 0.75rem;
+  color: var(--color-name);
 }
 
 .amount {
@@ -431,6 +514,7 @@ ul {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  color: var(--color-main-heading);
 }
 
 .status {
@@ -481,18 +565,18 @@ ul {
 }
 
 .status.paid {
-  color: #33d69f;
+  color: var(--color-paid);
   background-color: rgba(51, 214, 159, 0.05);
 }
 
 .status.pending {
-  color: #ff8f00;
+  color: var(--color-pending);
   background-color: rgba(255, 143, 0, 0.05);
 }
 
 .status.draft {
-  color: #373b53;
-  background-color: rgba(55, 59, 83, 0.05);
+  color: var(--color-draft);
+  background-color: var(--color-draft-bg);
 }
 
 .arrow {
@@ -514,7 +598,7 @@ ul {
   z-index: 10000;
   padding: 2rem;
   height: 100vh;
-  background: white;
+  background: var(--color-page-bg);
   border-radius: 10px;
   padding-left: 10rem;
   width: 500px;
@@ -523,6 +607,7 @@ ul {
 }
 
 .side_invoice .new__invoice {
+  color: var(--color-main-heading);
   padding-bottom: 1rem;
 }
 
@@ -543,6 +628,7 @@ ul {
 }
 
 .invoice__itemList {
+  color: var(--color-itemlist-text);
   margin-top: 3rem;
 }
 
@@ -557,7 +643,7 @@ ul {
   }
   form.new .buttons {
     position: fixed;
-    background-color: white;
+    background-color: var(--color-page-bg);
     width: 500px;
     padding: 2rem;
     left: 0;
@@ -578,7 +664,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: var(--color-1);
+  background-color: var(--color-primary);
   color: white;
   border-radius: 2rem;
   position: relative;
@@ -610,7 +696,7 @@ ul {
 }
 
 .button1:hover {
-  background-color: var(--color-2);
+  background-color: var(--color-secondary);
 }
 
 .overlay {
@@ -680,7 +766,7 @@ ul {
 }
 
 .label {
-  color: var(--color-7);
+  color: var(--color-label);
 }
 
 .new.validate > .invoice__input:invalid {
@@ -688,7 +774,7 @@ ul {
 }
 
 .new__details {
-  color: var(--color-1);
+  color: var(--color-primary);
 }
 
 .new__bill-address {
@@ -705,16 +791,17 @@ ul {
   display: block;
   position: relative;
   border: 0;
-  background: 0;
+  background: var(--color-bg-textfield);
+  color: var(--color-text-textfield);
   width: 100%;
   padding: 1rem;
-  border: 1px solid var(--color-5);
+  border: 1px solid var(--color-outline);
   border-radius: 5px;
   font-size: 0.75rem;
 }
 
 .invoice__input:active, .invoice__input:focus {
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-outline-active);
 }
 
 .new__date {
@@ -725,7 +812,8 @@ ul {
   cursor: pointer;
   font-weight: 700;
   border-radius: 5px;
-  border: 1px solid var(--color-5);
+  border: 1px solid var(--color-outline);
+  color: var(--color-main-heading);
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -739,7 +827,7 @@ ul {
 }
 
 .new__date .issue-date.active {
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-outline-active);
 }
 
 .new__date .dates {
@@ -748,7 +836,7 @@ ul {
   z-index: 1;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--color-bg-textfield);
   display: none;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -762,10 +850,10 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 1rem;
 }
 
 .new__date .dates .month .mth {
+  color: var(--color-main-heading);
   font-weight: 700;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -796,6 +884,8 @@ ul {
   display: grid;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
+  background: var(--color-dropdown);
+  color: var(--color-main-heading);
 }
 
 .new__date .dates .days .day {
@@ -807,7 +897,7 @@ ul {
 }
 
 .new__date .dates .days .day.selected {
-  color: var(--color-1);
+  color: var(--color-primary);
 }
 
 .new__date .dates .days .day.inactive {
@@ -827,6 +917,7 @@ ul {
 }
 
 .new__payment-dropdown .selected-item {
+  color: var(--color-main-heading);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -835,7 +926,7 @@ ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1.2rem;
-  border: 1px solid var(--color-5);
+  border: 1px solid var(--color-outline);
   border-radius: 5px;
 }
 
@@ -844,25 +935,26 @@ ul {
 }
 
 .new__payment-dropdown .selected-item.active {
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-outline-active);
 }
 
 .new__payment-dropdown #dropdown {
-  background: white;
+  background: var(--color-dropdown);
   position: absolute;
   z-index: 1;
   top: 7.2rem;
   left: 0;
   right: 0;
-  border: 1px solid var(--color-5);
+  border: 1px solid var(--color-primary);
   border-radius: 5px;
   display: none;
 }
 
 .new__payment-dropdown #dropdown li {
+  color: var(--color-dropdown-text);
   font-weight: 700;
   padding: 1rem;
-  border-bottom: 1px solid var(--color-5);
+  border-bottom: 1px solid var(--color-dropdown-border);
 }
 
 .new__payment-dropdown #dropdown li:last-child {
@@ -870,7 +962,7 @@ ul {
 }
 
 .new__payment-dropdown #dropdown li.selected {
-  color: var(--color-1);
+  color: var(--color-primary);
 }
 
 .new__payment-dropdown #dropdown.show {
@@ -934,7 +1026,7 @@ button {
 }
 
 .button2 {
-  background-color: var(--color-1);
+  background-color: var(--color-primary);
   color: white;
   border-radius: 2rem;
   padding: 1rem 1.5rem;
@@ -943,7 +1035,7 @@ button {
 }
 
 .button2:hover {
-  background-color: var(--color-2);
+  background-color: var(--color-secondary);
 }
 
 .button3 {
@@ -951,12 +1043,12 @@ button {
   padding: 1rem 1.5rem;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--color-11);
-  color: var(--color-7);
+  background-color: var(--color-button3);
+  color: var(--color-button3-text);
 }
 
 .button3:hover {
-  background-color: var(--color-5);
+  background-color: var(--color-button3-hover);
 }
 
 #saveandsend {
@@ -968,21 +1060,21 @@ button {
   padding: 1rem 1.5rem;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--color-13);
-  color: var(--color-6);
+  background-color: var(--color-button4);
+  color: var(--color-button4-text);
 }
 
 .button4:hover {
-  background-color: var(--color-8);
+  background-color: var(--color-button4-hover);
 }
 
 .button4.delete {
-  background-color: var(--color-9);
-  color: var(--color--white);
+  background-color: var(--color-button5);
+  color: var(--color-button5-text);
 }
 
 .button4.delete:hover {
-  background-color: var(--color-10);
+  background-color: var(--color-button5-hover);
 }
 
 .button5 {
@@ -996,8 +1088,8 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: var(--color-11);
-  color: var(--color-7);
+  background-color: var(--color-button6);
+  color: var(--color-button6-text);
   border-radius: 2rem;
   padding: 1rem;
   font-weight: 500;
@@ -1009,7 +1101,7 @@ button {
 }
 
 .button5:hover {
-  background-color: var(--color-5);
+  background-color: var(--color-button6-hover);
 }
 
 .buttons {
