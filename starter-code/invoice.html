@@ -37,7 +37,12 @@
                 </div>
                 <div class="bottom">
                     <button class="theme">
-                        <img src="./assets/icon-moon.svg" alt="" srcset="" />
+                        <img
+                            id="theme"
+                            src="./assets/icon-moon.svg"
+                            alt=""
+                            srcset=""
+                        />
                     </button>
                     <img
                         class="avatar"
@@ -50,7 +55,10 @@
 
         <div class="side_invoice">
             <form class="new" method="POST" onsubmit="return formValidate()">
-                <h1 class="new__invoice">New Invoice</h1>
+                <div class="new__invoice">
+                    Edit <span class="hash">#</span>
+                    <h1 class="id1">ABCD</h1>
+                </div>
                 <h5 class="new__details">Bill From</h5>
                 <div class="new__bill-from">
                     <label for="fromStreetAddress" class="label"
@@ -367,6 +375,10 @@
             </div>
         </div>
         <script src="../JS/invoice_fetch.js"></script>
+        <script src="../JS/theme.js"></script>
+        <script src="../JS/date-picker.js"></script>
+        <!-- <script src="../JS/drop_down.js"></script> -->
+        <script src="../JS/payment_dropdown.js"></script>
         <script>
             let deleteId = document.getElementById("deleteid");
             deleteId.innerHTML = `Are you sure you want to delete invoice #${sub}? This action cannot be undone.`;
@@ -399,6 +411,11 @@
                 edit_invoice.classList.remove("show");
                 overlay.style.display = "none";
             });
+        </script>
+        <script>
+            let invoiceID = document.querySelector(".new__invoice");
+            console.log(invoiceID);
+            invoiceID.children[1].innerHTML = sub;
         </script>
     </body>
 </html>

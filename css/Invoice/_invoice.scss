@@ -10,12 +10,12 @@
         margin-top: 5rem;
         margin-bottom: 2rem;
         text-decoration: none;
-        color: black;
+        color: var(--color-main-heading);
         font-weight: 700;
         font-size: 1rem;
 
         &:visited {
-            color: black;
+            color: var(--color-main-heading);
         }
 
         &::before {
@@ -25,6 +25,7 @@
     }
 
     &__body {
+        background-color: var(--color-card-bg);
         margin-top: 2rem;
         width: 50rem;
         padding: 3rem;
@@ -33,6 +34,8 @@
 
         .clientDetails {
             display: grid;
+            min-height: 10rem;
+            height: 100%;
             grid-template-columns: repeat(3, 1fr);
             margin-bottom: 4.16rem;
 
@@ -46,6 +49,7 @@
 
     &__header {
         padding: 2rem;
+        background-color: var(--color-card-bg);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -60,18 +64,19 @@
     &__id {
         font-size: 1.4rem;
         font-weight: 700;
+        color: var(--color-main-heading);
 
         &::before {
             content: "#";
             font-weight: 500;
-            color: var(--color-7);
+            color: var(--color-hashtag);
         }
     }
 
     &__des {
         font-size: 1rem;
         margin-top: 1rem;
-        color: var(--color-7);
+        color: var(--color-text);
     }
 
     &__content {
@@ -81,7 +86,7 @@
 
         .fromAddress {
             text-align: end;
-            color: var(--color-7);
+            color: var(--color-text);
 
             & > p {
                 line-height: 2;
@@ -92,7 +97,7 @@
 
 .heading {
     font-size: 1rem;
-    color: var(--color-7);
+    color: var(--color-text);
     margin-bottom: 1rem;
 }
 
@@ -101,16 +106,18 @@
     display: inline-flex;
     align-items: center;
     font-size: 1rem;
+    color: var(--color-text);
 }
 
 .bold-text {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--color-main-heading);
 }
 
 .toAddress p:not(.bold-text, .heading) {
-    color: var(--color-7);
+    color: var(--color-text);
     line-height: 2;
 }
 
@@ -120,7 +127,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    background-color: rgb(249, 250, 254);
+    background-color: var(--color-invoiceitems-bg);
 
     .lt {
         display: grid;
@@ -140,8 +147,12 @@
     font-weight: 700;
     font-size: 1.2rem;
 
+    &.Dark {
+        color: var(--color-main-heading);
+    }
+
     &.Light {
-        color: var(--color-7);
+        color: var(--color-text);
     }
 }
 
@@ -149,8 +160,8 @@
     display: flex;
     justify-content: space-between;
     padding: 2rem;
-    color: white;
-    background-color: #373b53;
+    color: var(--color-invoice-bar-text);
+    background-color: var(--color-invoice-bar);
     border-radius: 0 0 10px 10px;
     .Amount {
         font-size: 1rem;
@@ -170,9 +181,11 @@
     height: 20rem;
     position: fixed;
     z-index: 3;
-    top: 30%;
-    left: 38%;
-    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Negative half of height. */
+    // margin-left: -20rem;
+    background: var(--color-card-bg);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: none;
@@ -192,10 +205,12 @@
 
     h1 {
         margin: 1rem;
+        color: var(--color-main-heading);
     }
     p {
         font-size: 1rem;
         margin: 1rem;
+        color: var(--color-text);
     }
 
     .popupButtons {
@@ -203,4 +218,14 @@
         justify-content: flex-end;
         gap: 1rem;
     }
+}
+
+.hash {
+    font-size: 2rem;
+    color: var(--color-hashtag);
+}
+
+.id1 {
+    color: var(--color-main-heading);
+    font-size: 2rem;
 }

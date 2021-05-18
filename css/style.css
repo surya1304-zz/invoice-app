@@ -537,8 +537,6 @@ ul {
 }
 
 .status.big {
-  position: relative;
-  top: -0.5rem;
   font-size: 1rem;
   padding: 1rem;
   width: 8rem;
@@ -769,6 +767,15 @@ ul {
   color: var(--color-label);
 }
 
+.new h1 {
+  display: inline;
+}
+
+.new__invoice {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
 .new.validate > .invoice__input:invalid {
   border: 1px solid red;
 }
@@ -945,7 +952,8 @@ ul {
   top: 7.2rem;
   left: 0;
   right: 0;
-  border: 1px solid var(--color-primary);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   display: none;
 }
@@ -1171,13 +1179,13 @@ button {
   margin-top: 5rem;
   margin-bottom: 2rem;
   text-decoration: none;
-  color: black;
+  color: var(--color-main-heading);
   font-weight: 700;
   font-size: 1rem;
 }
 
 .invoices .link:visited {
-  color: black;
+  color: var(--color-main-heading);
 }
 
 .invoices .link::before {
@@ -1186,6 +1194,7 @@ button {
 }
 
 .invoices__body {
+  background-color: var(--color-card-bg);
   margin-top: 2rem;
   width: 50rem;
   padding: 3rem;
@@ -1197,6 +1206,8 @@ button {
 .invoices__body .clientDetails {
   display: -ms-grid;
   display: grid;
+  min-height: 10rem;
+  height: 100%;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   margin-bottom: 4.16rem;
@@ -1217,6 +1228,7 @@ button {
 
 .invoices__header {
   padding: 2rem;
+  background-color: var(--color-card-bg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1239,18 +1251,19 @@ button {
 .invoices__id {
   font-size: 1.4rem;
   font-weight: 700;
+  color: var(--color-main-heading);
 }
 
 .invoices__id::before {
   content: "#";
   font-weight: 500;
-  color: var(--color-7);
+  color: var(--color-hashtag);
 }
 
 .invoices__des {
   font-size: 1rem;
   margin-top: 1rem;
-  color: var(--color-7);
+  color: var(--color-text);
 }
 
 .invoices__content {
@@ -1265,7 +1278,7 @@ button {
 
 .invoices__content .fromAddress {
   text-align: end;
-  color: var(--color-7);
+  color: var(--color-text);
 }
 
 .invoices__content .fromAddress > p {
@@ -1274,7 +1287,7 @@ button {
 
 .heading {
   font-size: 1rem;
-  color: var(--color-7);
+  color: var(--color-text);
   margin-bottom: 1rem;
 }
 
@@ -1287,16 +1300,18 @@ button {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1rem;
+  color: var(--color-text);
 }
 
 .bold-text {
   font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  color: var(--color-main-heading);
 }
 
 .toAddress p:not(.bold-text, .heading) {
-  color: var(--color-7);
+  color: var(--color-text);
   line-height: 2;
 }
 
@@ -1311,7 +1326,7 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
-  background-color: #f9fafe;
+  background-color: var(--color-invoiceitems-bg);
 }
 
 .invoicesItemsList .lt {
@@ -1334,8 +1349,12 @@ button {
   font-size: 1.2rem;
 }
 
+.ListItem.Dark {
+  color: var(--color-main-heading);
+}
+
 .ListItem.Light {
-  color: var(--color-7);
+  color: var(--color-text);
 }
 
 .listTotal {
@@ -1346,8 +1365,8 @@ button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 2rem;
-  color: white;
-  background-color: #373b53;
+  color: var(--color-invoice-bar-text);
+  background-color: var(--color-invoice-bar);
   border-radius: 0 0 10px 10px;
 }
 
@@ -1372,9 +1391,12 @@ button {
   height: 20rem;
   position: fixed;
   z-index: 3;
-  top: 30%;
-  left: 38%;
-  background: white;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* Negative half of height. */
+  background: var(--color-card-bg);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -1403,11 +1425,13 @@ button {
 
 .deletepopup h1 {
   margin: 1rem;
+  color: var(--color-main-heading);
 }
 
 .deletepopup p {
   font-size: 1rem;
   margin: 1rem;
+  color: var(--color-text);
 }
 
 .deletepopup .popupButtons {
@@ -1418,5 +1442,15 @@ button {
       -ms-flex-pack: end;
           justify-content: flex-end;
   gap: 1rem;
+}
+
+.hash {
+  font-size: 2rem;
+  color: var(--color-hashtag);
+}
+
+.id1 {
+  color: var(--color-main-heading);
+  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -17,6 +17,15 @@ ul {
 }
 
 .new {
+    h1 {
+        display: inline;
+    }
+
+    &__invoice {
+        font-weight: 700;
+        font-size: 2rem;
+    }
+
     &.validate > .invoice__input:invalid {
         border: 1px solid red;
     }
@@ -161,7 +170,8 @@ ul {
         top: 7.2rem;
         left: 0;
         right: 0;
-        border: 1px solid var(--color-primary);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        // border: 1px solid var(--color-dro);
         border-radius: 5px;
         display: none;
 
