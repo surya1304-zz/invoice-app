@@ -631,7 +631,17 @@ ul {
 }
 
 .buttons {
-  margin-top: 2rem;
+  border-top: 1px solid var(--color-dropdown-border);
+  width: calc(500px - 12rem);
+  padding-top: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media screen and (max-height: 1000px) {
@@ -1395,7 +1405,6 @@ button {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  /* Negative half of height. */
   background: var(--color-card-bg);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -1452,5 +1461,33 @@ button {
 .id1 {
   color: var(--color-main-heading);
   font-size: 2rem;
+}
+
+.editButtons {
+  border-top: 1px solid var(--color-dropdown-border);
+  width: calc(500px - 12rem);
+  padding-top: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media screen and (max-height: 1000px) {
+  .editButtons {
+    position: fixed;
+    background-color: var(--color-page-bg);
+    width: 500px;
+    padding: 2rem;
+    left: 0;
+    bottom: 0;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
 }
 /*# sourceMappingURL=style.css.map */

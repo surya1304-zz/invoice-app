@@ -66,7 +66,7 @@ if (!localStorage.getItem("jsonData")) {
 
                     let arrow = document.createElement("a");
                     arrow.classList.add("arrow");
-                    arrow.href = "./invoice.html?ID=${p[i].id}";
+                    arrow.href = `./invoice.html?ID=${p[i].id}`;
 
                     k.appendChild(id);
                     k.appendChild(due_date);

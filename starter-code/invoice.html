@@ -25,7 +25,7 @@
 
         <link rel="stylesheet" href="../css/style.css" />
 
-        <title>Frontend Mentor | Invoice app</title>
+        <title>Invoice app</title>
     </head>
 
     <body>
@@ -247,42 +247,13 @@
                         <label for="total" class="label">Total</label>
                         <div></div>
                     </div>
-                    <div class="item">
-                        <input
-                            required
-                            name="itemName"
-                            type="text"
-                            class="invoice__input"
-                        />
-                        <input
-                            onchange="Hello()"
-                            required
-                            name="quantity"
-                            type="text"
-                            class="invoice__input quantity"
-                        />
-                        <input
-                            onchange="Hello()"
-                            required
-                            name="price"
-                            type="text"
-                            class="invoice__input price"
-                        />
-                        <p class="total invoice__input"></p>
-                        <button class="delete-icon"></button>
-                    </div>
                 </div>
                 <button id="addItem" class="button5">+ Add New Item</button>
-                <div class="buttons">
+                <div class="editButtons">
                     <button id="discard" class="button3">Discard</button>
-                    <div class="invoice__save">
-                        <button id="draft" type="submit" class="button4">
-                            Save as Draft
-                        </button>
-                        <button id="saveandsend" type="submit" class="button2">
-                            Save & Send
-                        </button>
-                    </div>
+                    <button id="saveandsend" type="submit" class="button2">
+                        Save & Send
+                    </button>
                 </div>
             </form>
         </div>
@@ -374,11 +345,12 @@
                 </div>
             </div>
         </div>
+        <script src="../JS/adding_invoice.js"></script>
         <script src="../JS/invoice_fetch.js"></script>
         <script src="../JS/theme.js"></script>
         <script src="../JS/date-picker.js"></script>
-        <!-- <script src="../JS/drop_down.js"></script> -->
         <script src="../JS/payment_dropdown.js"></script>
+        <script src="../JS//form_handler.js"></script>
         <script>
             let deleteId = document.getElementById("deleteid");
             deleteId.innerHTML = `Are you sure you want to delete invoice #${sub}? This action cannot be undone.`;
@@ -404,6 +376,28 @@
                 deletePopup.classList.remove("show");
             });
 
+            let finalDelete = document.querySelector("#finalDelete");
+
+            finalDelete.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const DELETE_OPTIONS = {
+                    method: "DELETE",
+                    mode: "cors",
+                };
+
+                fetch(`http://localhost:3000/${sub}`, DELETE_OPTIONS)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.ok === 1) {
+                            localStorage.removeItem("jsonData");
+                            window.location =
+                                "/starter-code/js_components.html";
+                        }
+                    });
+            });
+
             const discard = document.getElementById("discard");
 
             discard.addEventListener("click", (e) => {
@@ -416,6 +410,37 @@
             let invoiceID = document.querySelector(".new__invoice");
             console.log(invoiceID);
             invoiceID.children[1].innerHTML = sub;
+
+            const Hello = () => {
+                let quantities = document.querySelectorAll(".quantity");
+                let totals = document.querySelectorAll(".total");
+                let prices = document.querySelectorAll(".price");
+                for (let i = 0; i < quantities.length; i++) {
+                    let yt = quantities[i].value * prices[i].value;
+                    totals[i].innerHTML = yt;
+                    totals[i].dataset.value = yt;
+                }
+            };
+
+            const markaspaid = document.getElementById("markAsPaid");
+
+            markaspaid.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const PUT_OPTIONS = {
+                    method: "PUT",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                };
+
+                fetch(`http://localhost:3000/${sub}`, PUT_OPTIONS)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        window.location.reload();
+                    });
+            });
         </script>
     </body>
 </html>
