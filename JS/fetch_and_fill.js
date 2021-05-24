@@ -22,8 +22,11 @@ if (localStorage.getItem("check") === {} || !localStorage.getItem("check")) {
         .then((data) => {
             let p = data;
             let count;
+            const medque = window.matchMedia("(max-width : 630px)");
             p.length === 0
                 ? (count = `No invoices`)
+                : medque.matches
+                ? (count = `${p.length} invoices`)
                 : (count = `There are ${p.length} total invoices`);
             invoice_count.innerHTML = count;
 

@@ -26,11 +26,6 @@ button {
     &__right {
         display: flex;
         flex-direction: row;
-
-        .new_invoice_button {
-            position: relative;
-            top: 0.5rem;
-        }
     }
 }
 
@@ -140,12 +135,12 @@ ul {
 }
 
 .side_bar {
-    width: 7.25rem;
+    width: 6.25rem;
     background: var(--color-sidebar);
     height: 100vh;
-    border-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     position: fixed;
-    left: -1rem;
     z-index: 100001;
     display: flex;
     flex-direction: column;
@@ -155,24 +150,25 @@ ul {
 
 .top {
     height: 6.25rem;
-    width: 7.25rem;
+    width: 6.25rem;
     background-color: var(--color-primary);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     overflow: hidden;
 
     &::after {
         content: "";
-        height: 4.125rem;
-        width: 7.25rem;
+        height: 3.125rem;
+        width: 6.25rem;
         background-color: var(--color-secondary);
         position: absolute;
-        left: 1rem;
-        bottom: -1rem;
-        border-radius: 1rem;
+        left: 0;
+        bottom: 0;
+        border-top-left-radius: 1rem;
         z-index: 1;
     }
 }
@@ -183,7 +179,6 @@ ul {
     height: 40px;
     width: 40px;
     position: relative;
-    left: 0.25rem;
     z-index: 2;
 
     &::before {
@@ -195,7 +190,7 @@ ul {
         border-top: 20px solid var(--color-primary);
         position: absolute;
         left: 10px;
-        top: 0px;
+        top: -1px;
     }
 }
 
@@ -205,9 +200,7 @@ ul {
     align-items: center;
 
     .theme {
-        padding-left: 1rem;
-        width: 7.25rem;
-        color: white;
+        width: 6.25rem;
         padding-bottom: 1.5rem;
         border-bottom: 1px solid rgb(73, 78, 110);
         margin-bottom: 1.5rem;
@@ -218,6 +211,50 @@ ul {
         width: 3rem;
         border-radius: 50%;
         margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .side_bar {
+        height: 6.25rem;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        flex-direction: row;
+
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .top {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .bottom {
+        flex-direction: row;
+        height: 6.25rem;
+
+        .theme {
+            height: 100%;
+            padding-left: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            border-right: 1px solid rgb(73, 78, 110);
+        }
+
+        .avatar {
+            margin-bottom: 0;
+            margin-right: 2rem;
+            margin-left: 1rem;
+        }
     }
 }
 
@@ -258,4 +295,27 @@ ul {
         user-select: none;
         pointer-events: none;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .empty {
+        margin-top: 6rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .buttons {
+        width: calc(500px - 4rem);
+    }
+}
+
+.moveleft {
+    transform: translateX(4rem);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

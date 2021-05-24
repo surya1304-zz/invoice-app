@@ -167,11 +167,6 @@ button {
           flex-direction: row;
 }
 
-.header__right .new_invoice_button {
-  position: relative;
-  top: 0.5rem;
-}
-
 ul {
   list-style: none;
   padding-left: 0;
@@ -295,12 +290,12 @@ ul {
 }
 
 .side_bar {
-  width: 7.25rem;
+  width: 6.25rem;
   background: var(--color-sidebar);
   height: 100vh;
-  border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   position: fixed;
-  left: -1rem;
   z-index: 100001;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,7 +314,7 @@ ul {
 
 .top {
   height: 6.25rem;
-  width: 7.25rem;
+  width: 6.25rem;
   background-color: var(--color-primary);
   position: relative;
   display: -webkit-box;
@@ -331,19 +326,20 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   overflow: hidden;
 }
 
 .top::after {
   content: "";
-  height: 4.125rem;
-  width: 7.25rem;
+  height: 3.125rem;
+  width: 6.25rem;
   background-color: var(--color-secondary);
   position: absolute;
-  left: 1rem;
-  bottom: -1rem;
-  border-radius: 1rem;
+  left: 0;
+  bottom: 0;
+  border-top-left-radius: 1rem;
   z-index: 1;
 }
 
@@ -353,7 +349,6 @@ ul {
   height: 40px;
   width: 40px;
   position: relative;
-  left: 0.25rem;
   z-index: 2;
 }
 
@@ -366,7 +361,7 @@ ul {
   border-top: 20px solid var(--color-primary);
   position: absolute;
   left: 10px;
-  top: 0px;
+  top: -1px;
 }
 
 .bottom {
@@ -383,9 +378,7 @@ ul {
 }
 
 .bottom .theme {
-  padding-left: 1rem;
-  width: 7.25rem;
-  color: white;
+  width: 6.25rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #494e6e;
   margin-bottom: 1.5rem;
@@ -396,6 +389,57 @@ ul {
   width: 3rem;
   border-radius: 50%;
   margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .side_bar {
+    height: 6.25rem;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .top {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .bottom {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 6.25rem;
+  }
+  .bottom .theme {
+    height: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 1rem;
+    border-right: 1px solid #494e6e;
+  }
+  .bottom .avatar {
+    margin-bottom: 0;
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
 }
 
 .content {
@@ -451,6 +495,37 @@ ul {
   pointer-events: none;
 }
 
+@media screen and (max-width: 768px) {
+  .empty {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .buttons {
+    width: calc(500px - 4rem);
+  }
+}
+
+.moveleft {
+  -webkit-transform: translateX(4rem);
+          transform: translateX(4rem);
+}
+
+.container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -478,6 +553,23 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 630px) {
+  header {
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .card {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
 }
 
 .id {
@@ -644,7 +736,7 @@ ul {
           justify-content: space-between;
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 1100px) {
   form.new {
     position: relative;
     margin-bottom: 7.5rem;
@@ -662,6 +754,15 @@ ul {
   }
   form.new .buttons #discard {
     margin-left: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  form.new .buttons {
+    min-width: calc(500px - 4rem);
+  }
+  form.new .buttons #discard {
+    margin-left: 0;
   }
 }
 
@@ -1167,6 +1268,16 @@ button {
   }
 }
 
+.toti {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .invoices {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1477,7 +1588,7 @@ button {
           justify-content: flex-end;
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 1100px) {
   .editButtons {
     position: fixed;
     background-color: var(--color-page-bg);
@@ -1488,6 +1599,16 @@ button {
     border-radius: 10px;
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .invoices {
+    margin-top: 5rem;
+  }
+  .side_invoice {
+    padding-left: 2rem;
+    padding-top: 8rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
