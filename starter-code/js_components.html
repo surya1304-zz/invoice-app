@@ -373,9 +373,7 @@
                 } else {
                     let checkbx = localStorage.getItem("check");
                     let chkbx = JSON.parse(checkbx);
-                    console.log(chkbx);
                     let ckbxs = document.querySelectorAll("#drop_down ul li");
-                    console.log(ckbxs);
 
                     for (let i = 0; i < 3; i++) {
                         if (chkbx[i] == true) {
@@ -383,7 +381,6 @@
                             ckbxs[i].classList.add("selected");
                         }
                     }
-                    console.log(ckbxs);
                 }
 
                 let deleteIcons = document.querySelectorAll(".delete-icon");

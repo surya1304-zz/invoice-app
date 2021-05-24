@@ -57,7 +57,6 @@ function toggleDatePicker(e) {
         if (item.classList)
             dontoggle = dontoggle || item.classList.contains("dates");
     });
-    console.log(dontoggle);
     if (!dontoggle) {
         dates_element.classList.toggle("active");
         selected.classList.toggle("active");
@@ -140,7 +139,6 @@ function populateDates(e) {
 
 // HELPER FUNCTIONS
 function formatDate(d) {
-    console.log(d);
     let day = d.getDate();
     if (day < 10) {
         day = "0" + day;

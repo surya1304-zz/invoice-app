@@ -7,11 +7,8 @@ document.title = `Invoice id=${sub}`;
 fetch(`http://localhost:3000/id/${sub}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data[0]);
         let stat = document.querySelector("#status");
-        console.log(stat);
         let prevStat = stat.innerHTML;
-        console.log(prevStat);
         stat.innerHTML = data[0].status;
         stat.classList.replace(prevStat, data[0].status);
         let invoices__id = document.querySelector(".invoices__id");
@@ -30,8 +27,6 @@ fetch(`http://localhost:3000/id/${sub}`)
         fromCountry.innerHTML = data[0].senderAddress.country;
 
         let invoices__date = document.getElementById("invoices__date");
-        console.log(invoices__date);
-        console.log(data[0].createdAt);
         invoices__date.innerHTML = formatdate(data[0].createdAt);
 
         let invoices__due = document.getElementById("invoices__due");
@@ -135,7 +130,6 @@ fetch(`http://localhost:3000/id/${sub}`)
         mont.innerHTML = displayDate(selectedDate.dataset.value);
 
         let dayf = document.querySelector(".date-picker .dates .days");
-        console.log(dayf.children);
 
         for (let i = 0; i < 35; i++) {
             if (
@@ -174,8 +168,6 @@ fetch(`http://localhost:3000/id/${sub}`)
         projectDescriptioninput.value = data[0].description;
 
         const hari = document.querySelector(".invoice__items");
-
-        console.log(data[0].items);
 
         for (let i = 0; i < data[0].items.length; i++) {
             const itemdiv = document.createElement("div");
@@ -221,11 +213,9 @@ fetch(`http://localhost:3000/id/${sub}`)
             hari.appendChild(itemdiv);
 
             let deleteIcons = document.querySelectorAll(".delete-icon");
-            console.log(deleteIcons);
             deleteIcons.forEach((deleteIcon) => {
                 deleteIcon.addEventListener("click", (e) => {
                     e.preventDefault();
-                    console.log(e.target.parentElement);
                     e.target.parentElement.remove();
                 });
             });
@@ -261,6 +251,5 @@ function formatdate(dat) {
 
 function displayDate(dat) {
     let d = new Date(dat);
-    console.log(d.getMonth());
     return monts[d.getMonth()] + " " + d.getFullYear();
 }

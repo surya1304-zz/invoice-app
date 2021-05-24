@@ -62,9 +62,7 @@ saveandsend.addEventListener("click", (e) => {
     e.preventDefault();
     formValidate();
 
-    console.log("I'm called");
     let tot = document.querySelectorAll(".total");
-    console.log(tot);
 
     let fromStreetAddress1 = add_form["fromStreetAddress"].value;
     let fromCity1 = add_form["fromCity"].value;
@@ -148,7 +146,6 @@ saveandsend.addEventListener("click", (e) => {
     };
 
     fetch("http://localhost:3000", POST_OPTIONS).then((res) => {
-        localStorage.removeItem("jsonData");
         window.location.reload();
     });
 });
@@ -242,7 +239,6 @@ draft.addEventListener("click", (e) => {
     };
 
     fetch("http://localhost:3000", POST_OPTIONS).then((res) => {
-        localStorage.removeItem("jsonData");
         window.location.reload();
     });
 });

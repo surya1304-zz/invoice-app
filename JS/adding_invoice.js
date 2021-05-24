@@ -41,22 +41,7 @@ add_Item.addEventListener("click", function (e) {
     deleteIcons.forEach((deleteIcon) => {
         deleteIcon.addEventListener("click", (e) => {
             e.preventDefault();
-            // e.preventDefault();
-            console.log(e.target.parentElement);
             e.target.parentElement.remove();
         });
     });
-
-    console.log(deleteIcons);
 });
-
-// const deleteIcon = document.querySelectorAll(".delete-icon");
-// console.log(deleteIcon);
-// for (let i = 0; i < deleteIcon.length; i++) {
-//     let fs = deleteIcon[i];
-//     fs.addEventListener("click", function (e) {
-//         e.preventDefault();
-//         let g = fs.parentElement;
-//         g.remove();
-//     });
-// }

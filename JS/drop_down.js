@@ -38,7 +38,6 @@ for (let i = 0; i < k.length; i++) {
             checkbox[i] = true;
         }
         localStorage.setItem("check", JSON.stringify(checkbox));
-        console.log(k[i].classList.contains("selected"));
 
         let checkboxes = document.querySelectorAll(".regular-checkbox");
         for (let j = 0; j < checkboxes.length; j++) {
@@ -51,13 +50,10 @@ for (let i = 0; i < k.length; i++) {
             }
         }
 
-        console.log(query);
-
         if (query === "") {
             fetch(`http://localhost:3000`)
                 .then((res) => res.json())
                 .then((data) => {
-                    localStorage.setItem("jsonData", JSON.stringify(data));
                     window.location.reload();
                 })
                 .catch((err) => {
@@ -67,7 +63,6 @@ for (let i = 0; i < k.length; i++) {
             fetch(`http://localhost:3000/${query}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    localStorage.setItem("jsonData", JSON.stringify(data));
                     window.location.reload();
                 })
                 .catch((err) => {
