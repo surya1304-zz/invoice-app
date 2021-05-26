@@ -1,3 +1,6 @@
+import store from "./redux/store.js";
+import { addData } from "./redux/data.js";
+
 const card = document.querySelector(".container");
 const invoice_count = document.querySelector(".invoice-count");
 
@@ -16,17 +19,32 @@ const months = [
     "Dec",
 ];
 
+let p;
+let count;
+
+const medque = window.matchMedia("(max-width: 630px)");
+
+const getCount = () => {
+    return medque.matches ? true : false;
+};
+
+getCount(medque);
+
 if (localStorage.getItem("check") === {} || !localStorage.getItem("check")) {
     fetch("http://localhost:3000")
         .then((resp) => resp.json())
         .then((data) => {
-            let p = data;
-            let count;
-            const medque = window.matchMedia("(max-width : 630px)");
+            p = data;
+            window.e = p;
+
             p.length === 0
                 ? (count = `No invoices`)
-                : medque.matches
-                ? (count = `${p.length} invoices`)
+                : getCount()
+                ? p.length === 1
+                    ? (count = `1 Invoice`)
+                    : (count = `${p.length} invoices`)
+                : p.length === 1
+                ? (count = `There is 1 invoice`)
                 : (count = `There are ${p.length} total invoices`);
             invoice_count.innerHTML = count;
 
@@ -136,9 +154,17 @@ if (localStorage.getItem("check") === {} || !localStorage.getItem("check")) {
         .then((res) => res.json())
         .then((data) => {
             let count = "";
-            let p = data;
+            p = data;
+            window.e = p;
+
             p.length === 0
                 ? (count = `No invoices`)
+                : getCount()
+                ? p.length === 1
+                    ? (count = `1 Invoice`)
+                    : (count = `${p.length} invoices`)
+                : p.length === 1
+                ? (count = `There is 1 invoice`)
                 : (count = `There are ${p.length} total invoices`);
             invoice_count.innerHTML = count;
 
@@ -206,6 +232,7 @@ if (localStorage.getItem("check") === {} || !localStorage.getItem("check")) {
             }
         })
         .catch((err) => {
+            console.log(err);
             invoice_count.innerHTML = `No invoices`;
 
             let div = document.createElement("div");

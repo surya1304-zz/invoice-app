@@ -21,6 +21,28 @@ const handleMobileChange = (e) => {
     header.style.marginRight = e.matches ? "1rem" : 0;
 };
 
+const handleCountChange = (e) => {
+    cont.innerHTML = countValue();
+};
+
+const countValue = () => {
+    if (mediaquery.matches) {
+        if (window.e.length === 1) {
+            return `1 Invoice`;
+        } else {
+            return `${window.e.length} invoices`;
+        }
+    } else {
+        if (window.e.length === 1) {
+            return `There is 1 invoice`;
+        } else {
+            return `There are ${window.e.length} total invoices`;
+        }
+    }
+};
+
+mediaquery.addListener(handleCountChange);
+
 mediaquery.addListener(handleMobileChange);
 
 handleMobileChange(mediaquery);
