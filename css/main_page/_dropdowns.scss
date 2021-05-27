@@ -39,6 +39,29 @@ ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
+        grid-template-areas: "city postCode country";
+
+        .city {
+            grid-area: city;
+        }
+
+        .postCode {
+            grid-area: postCode;
+        }
+
+        .country {
+            grid-area: country;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .new__bill-address {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+            "city postCode"
+            "country country";
     }
 }
 
@@ -61,8 +84,13 @@ ul {
     }
 }
 
+.new__payment-terms {
+    grid-area: terms;
+}
+
 .new__date {
     position: relative;
+    grid-area: date;
     .issue-date {
         cursor: pointer;
         font-weight: 700;
@@ -200,6 +228,22 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    grid-template-areas: "date terms";
+}
+
+@media screen and (max-width: 400px) {
+    .new__date-payment {
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(2, auto);
+        gap: 2rem;
+        grid-template-areas:
+            "date"
+            "terms";
+
+        // .new__date {
+        //     margin-top: 2rem;
+        // }
+    }
 }
 
 .invoice__items {

@@ -543,6 +543,7 @@ ul {
   display: grid;
   -ms-grid-columns: (1fr)[5] 2rem;
       grid-template-columns: repeat(5, 1fr) 2rem;
+      grid-template-areas: "id date name amount status arrow";
   gap: 1rem;
   justify-items: self-start;
   width: 50rem;
@@ -576,6 +577,9 @@ ul {
   cursor: default;
   color: var(--color-main-heading);
   font-size: 0.75rem;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: id;
 }
 
 .id::before {
@@ -590,12 +594,18 @@ ul {
   cursor: default;
   font-size: 0.75rem;
   color: var(--color-text);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: date;
 }
 
 .name {
   cursor: default;
   font-size: 0.75rem;
   color: var(--color-name);
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: name;
 }
 
 .amount {
@@ -607,6 +617,9 @@ ul {
       -ms-grid-row-align: center;
       align-self: center;
   color: var(--color-main-heading);
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: amount;
 }
 
 .status {
@@ -622,10 +635,16 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-transform: capitalize;
   font-size: 0.75rem;
   -ms-flex-item-align: center;
       align-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: status;
 }
 
 .status.big {
@@ -674,6 +693,9 @@ ul {
   content: url("../../starter-code/assets/icon-arrow-right.svg");
   position: relative;
   left: 5px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: arrow;
 }
 
 .tot {
@@ -710,6 +732,12 @@ ul {
   display: block;
   -webkit-animation: animatewithout 500ms ease-in-out forwards;
           animation: animatewithout 500ms ease-in-out forwards;
+}
+
+@media screen and (max-width: 500px) {
+  .side_invoice {
+    width: 100%;
+  }
 }
 
 .label {
@@ -757,9 +785,21 @@ ul {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 501px) {
   form.new .buttons {
     min-width: calc(500px - 4rem);
+  }
+  form.new .buttons #discard {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  form.new .side_invoice {
+    width: 100%;
+  }
+  form.new .buttons {
+    width: 100%;
   }
   form.new .buttons #discard {
     margin-left: 0;
@@ -860,6 +900,23 @@ ul {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .card {
+    -ms-grid-columns: 1fr 1fr 2rem;
+        grid-template-columns: 1fr 1fr 2rem;
+    -ms-grid-rows: 2fr 1fr 3fr;
+        grid-template-rows: 2fr 1fr 3fr;
+        grid-template-areas: "id name arrow" "date status arrow" "amount status arrow";
+  }
+  .amount {
+    justify-self: flex-start;
+  }
+  .status {
+    width: 100%;
+    height: 90%;
+  }
+}
+
 * {
   font-family: "Spartan", sans-serif;
   font-size: 0.75rem;
@@ -902,6 +959,35 @@ ul {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+      grid-template-areas: "city postCode country";
+}
+
+.new__bill-address .city {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: city;
+}
+
+.new__bill-address .postCode {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: postCode;
+}
+
+.new__bill-address .country {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: country;
+}
+
+@media screen and (max-width: 400px) {
+  .new__bill-address {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: (auto)[2];
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "city postCode" "country country";
+  }
 }
 
 .invoice__input {
@@ -922,8 +1008,17 @@ ul {
   border: 1px solid var(--color-outline-active);
 }
 
+.new__payment-terms {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: terms;
+}
+
 .new__date {
   position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: date;
 }
 
 .new__date .issue-date {
@@ -1096,6 +1191,18 @@ ul {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   gap: 1rem;
+      grid-template-areas: "date terms";
+}
+
+@media screen and (max-width: 400px) {
+  .new__date-payment {
+    -ms-grid-columns: (auto)[1];
+        grid-template-columns: repeat(1, auto);
+    -ms-grid-rows: (auto)[2];
+        grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+        grid-template-areas: "date" "terms";
+  }
 }
 
 .invoice__items {

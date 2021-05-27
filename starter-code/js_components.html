@@ -368,7 +368,10 @@
         </div>
         <script>
             (function () {
-                if (localStorage.getItem("check") === {}) {
+                if (
+                    localStorage.getItem("check") === {} ||
+                    !localStorage.getItem("check")
+                ) {
                     return;
                 } else {
                     let checkbx = localStorage.getItem("check");

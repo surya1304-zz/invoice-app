@@ -13,6 +13,7 @@
     padding: 1.25rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr) 2rem;
+    grid-template-areas: "id date name amount status arrow";
     gap: 1rem;
     justify-items: self-start;
     width: 50rem;
@@ -46,6 +47,7 @@
     cursor: default;
     color: var(--color-main-heading);
     font-size: 0.75rem;
+    grid-area: id;
 }
 
 .id::before {
@@ -60,12 +62,14 @@
     cursor: default;
     font-size: 0.75rem;
     color: var(--color-text);
+    grid-area: date;
 }
 
 .name {
     cursor: default;
     font-size: 0.75rem;
     color: var(--color-name);
+    grid-area: name;
 }
 
 .amount {
@@ -74,6 +78,7 @@
     justify-self: center;
     align-self: center;
     color: var(--color-main-heading);
+    grid-area: amount;
 }
 
 .status {
@@ -85,9 +90,11 @@
     border-radius: 5px;
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     text-transform: capitalize;
     font-size: 0.75rem;
     align-self: center;
+    grid-area: status;
 
     &.big {
         font-size: 1rem;
@@ -132,6 +139,7 @@
     content: url("../../starter-code/assets/icon-arrow-right.svg");
     position: relative;
     left: 5px;
+    grid-area: arrow;
 }
 
 .tot {
@@ -166,6 +174,12 @@
     &.show {
         display: block;
         animation: animatewithout 500ms ease-in-out forwards;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .side_invoice {
+        width: 100%;
     }
 }
 
@@ -211,10 +225,26 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 501px) {
     form.new {
         .buttons {
             min-width: calc(500px - 4rem);
+
+            #discard {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    form.new {
+        .side_invoice {
+            width: 100%;
+        }
+        .buttons {
+            // padding: 0;
+            width: 100%;
 
             #discard {
                 margin-left: 0;
@@ -286,5 +316,25 @@
     100% {
         opacity: 1;
         top: 0%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card {
+        grid-template-columns: 1fr 1fr 2rem;
+        grid-template-rows: 2fr 1fr 3fr;
+        grid-template-areas:
+            "id name arrow"
+            "date status arrow"
+            "amount status arrow";
+    }
+
+    .amount {
+        justify-self: flex-start;
+    }
+
+    .status {
+        width: 100%;
+        height: 90%;
     }
 }

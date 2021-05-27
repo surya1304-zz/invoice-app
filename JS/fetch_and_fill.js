@@ -1,6 +1,3 @@
-import store from "./redux/store.js";
-import { addData } from "./redux/data.js";
-
 const card = document.querySelector(".container");
 const invoice_count = document.querySelector(".invoice-count");
 
